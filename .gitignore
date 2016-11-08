@@ -1,9 +1,6 @@
 /.idea
 
-/sonar_test/target/
-
-/utility/target/
-
+/*/target/
 
 *.iml
 *.ipr

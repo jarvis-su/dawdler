@@ -10,6 +10,8 @@ import java.util.concurrent.Executors;
  * Created by ysc on 7/26/16.
  */
 public class Interview {
+    private static volatile int count = 0;
+
     private static void one() {
         String str1 = "hello";
         String str2 = "he" + new String("llo");
@@ -28,8 +30,6 @@ public class Interview {
         Thread.getAllStackTraces().keySet().forEach(thread -> System.out.println(thread.getName() + "->" + thread.isDaemon() + " " + thread.getPriority()));
         System.out.println("3. gc线程是daemon线程");
     }
-
-    private static volatile int count = 0;
 
     private static void four() {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -98,6 +98,24 @@ public class Interview {
         System.out.println("10. 10");
     }
 
+    public static void main(String[] args) {
+        one();
+        two();
+        three();
+        four();
+        five();
+        six();
+        seven();
+        eight();
+        nine();
+        ten();
+        Null.main(null);
+        StringExample1.main(null);
+        StringExample2.main(null);
+        ForLoop.main(null);
+        HelloB.main(null);
+    }
+
     private static class Null {
         public static void hello() {
             System.out.println("hello");
@@ -114,17 +132,17 @@ public class Interview {
         String str = new String("good");
         char[] ch = {'a', 'b', 'c'};
 
-        public void change(String str, char[] ch) {
-            str = "test ok";
-            ch[0] = 'g';
-        }
-
         public static void main(String[] args) {
             StringExample1 ex = new StringExample1();
             ex.change(ex.str, ex.ch);
             System.out.print(ex.str + " and ");
             System.out.print(ex.ch);
             System.out.println();
+        }
+
+        public void change(String str, char[] ch) {
+            str = "test ok";
+            ch[0] = 'g';
         }
     }
 
@@ -157,30 +175,30 @@ public class Interview {
     }
 
     private static class HelloA {
-        public HelloA() {
-            System.out.println("HelloA");
+        static {
+            System.out.println("static A");
         }
 
         {
             System.out.println("I'm A class");
         }
 
-        static {
-            System.out.println("static A");
+        public HelloA() {
+            System.out.println("HelloA");
         }
     }
 
     private static class HelloB extends HelloA {
-        public HelloB() {
-            System.out.println("HelloB");
+        static {
+            System.out.println("static B");
         }
 
         {
             System.out.println("I'm B class");
         }
 
-        static {
-            System.out.println("static B");
+        public HelloB() {
+            System.out.println("HelloB");
         }
 
         public static void main(String[] args) {
@@ -189,23 +207,5 @@ public class Interview {
             new HelloB();
             System.out.println("main end");
         }
-    }
-
-    public static void main(String[] args) {
-        one();
-        two();
-        three();
-        four();
-        five();
-        six();
-        seven();
-        eight();
-        nine();
-        ten();
-        Null.main(null);
-        StringExample1.main(null);
-        StringExample2.main(null);
-        ForLoop.main(null);
-        HelloB.main(null);
     }
 }
