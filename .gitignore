@@ -9,3 +9,4 @@
 *.class
 
 /test/*log.log*
+/utility/*log.log*
