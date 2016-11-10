@@ -6,6 +6,10 @@
 *.ipr
 *.iws
 
+/*/.settings/
+*.classpath
+*.project
+
 *.class
 
 /test/*log.log*
