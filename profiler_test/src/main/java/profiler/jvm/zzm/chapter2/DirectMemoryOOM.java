@@ -1,4 +1,4 @@
-package jarvis.profiler;
+package profiler.jvm.zzm.chapter2;
 
 import sun.misc.Unsafe;
 
@@ -6,6 +6,7 @@ import java.lang.reflect.Field;
 
 /**
  * VM Args：-Xmx20M -XX:MaxDirectMemorySize=10M
+ *
  * @author zzm
  */
 public class DirectMemoryOOM {

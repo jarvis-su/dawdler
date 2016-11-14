@@ -1,10 +1,11 @@
-package jarvis.profiler;
+package profiler.jvm.zzm.chapter2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * VM Args：-XX:PermSize=10M -XX:MaxPermSize=10M
+ *
  * @author zzm
  */
 public class RuntimeConstantPoolOOM {

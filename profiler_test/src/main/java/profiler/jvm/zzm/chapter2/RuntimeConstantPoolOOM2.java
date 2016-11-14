@@ -1,4 +1,4 @@
-package jarvis.profiler;
+package profiler.jvm.zzm.chapter2;
 
 public class RuntimeConstantPoolOOM2 {
 

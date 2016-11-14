@@ -1,4 +1,4 @@
-package jarvis.profiler;
+package profiler.jvm.zzm.chapter2;
 
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 
 /**
  * VM Args： -XX:PermSize=10M -XX:MaxPermSize=10M
+ *
  * @author zzm
  */
 public class JavaMethodAreaOOM {
