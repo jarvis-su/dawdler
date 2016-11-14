@@ -1,3 +1,4 @@
+package profiler.jvm.zzm.chapter7;
 /**
  * 类加载器与instanceof关键字演示
  * 

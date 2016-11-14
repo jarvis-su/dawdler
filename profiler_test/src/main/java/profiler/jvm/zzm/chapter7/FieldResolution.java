@@ -1,6 +1,10 @@
-package org.fenixsoft.classloading;
+package profiler.jvm.zzm.chapter7;
 
 public class FieldResolution {
+
+	public static void main(String[] args) {
+		System.out.println(Sub.A);
+	}
 
 	interface Interface0 {
 		int A = 0;
@@ -20,10 +24,6 @@ public class FieldResolution {
 
 	static class Sub extends Parent implements Interface2 {
 		public static int A = 4;
-	}
-
-	public static void main(String[] args) {
-		System.out.println(Sub.A);
 	}
 }
 

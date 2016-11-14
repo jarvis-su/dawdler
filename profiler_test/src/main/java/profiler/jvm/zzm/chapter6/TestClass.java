@@ -1,4 +1,4 @@
-package org.fenixsoft.clazz;
+package profiler.jvm.zzm.chapter6;
 
 public class TestClass {
 
