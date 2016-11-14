@@ -1,11 +1,8 @@
-package jarvis.hashcode;
+package jarvis.samples.hashcode;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 
-/**
- * Created by C5023792 on 8/5/2016.
- */
 public class Student {
     private String name;
     private String firstName;

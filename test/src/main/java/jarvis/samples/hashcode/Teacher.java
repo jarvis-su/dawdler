@@ -1,4 +1,4 @@
-package jarvis.hashcode;
+package jarvis.samples.hashcode;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;

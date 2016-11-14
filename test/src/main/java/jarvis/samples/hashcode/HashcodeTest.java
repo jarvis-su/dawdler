@@ -1,4 +1,4 @@
-package jarvis.hashcode;
+package jarvis.samples.hashcode;
 
 import java.util.ArrayList;
 import java.util.List;

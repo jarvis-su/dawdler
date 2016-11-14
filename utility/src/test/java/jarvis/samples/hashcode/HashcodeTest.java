@@ -1,9 +1,7 @@
-package jarvis.hashcode;
+package jarvis.samples.hashcode;
 import java.util.ArrayList;
 import java.util.List;
-/**
- * Created by C5023792 on 8/5/2016.
- */
+
 public class HashcodeTest {
     public static void main(String[] args) {
         Student studentOne = new Student();
