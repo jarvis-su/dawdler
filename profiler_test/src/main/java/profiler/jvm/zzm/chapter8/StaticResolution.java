@@ -1,5 +1,6 @@
+package profiler.jvm.zzm.chapter8;
 /**
- * 方法静态解析演示
+ * 方法静态解析演示 8-05
  * 
  * @author zzm
  */

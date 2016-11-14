@@ -1,8 +1,17 @@
+package profiler.jvm.zzm.chapter8;
+
 /**
  * 单分派、多分派演示
 * @author zzm
  */
 public class Dispatch {
+
+    public static void main(String[] args) {
+        Father father = new Father();
+        Father son = new Son();
+        father.hardChoice(new _360());
+        son.hardChoice(new QQ());
+    }
 
 	static class QQ {}
 
@@ -26,13 +35,6 @@ public class Dispatch {
 		public void hardChoice(_360 arg) {
 			System.out.println("son choose 360");
 		}
-	}
-
-	public static void main(String[] args) {
-		Father father = new Father();
-		Father son = new Son();
-		father.hardChoice(new _360());
-		son.hardChoice(new QQ());
 	}
 }
 

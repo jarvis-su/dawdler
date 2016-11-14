@@ -1,4 +1,11 @@
+package profiler.jvm.zzm.chapter9;
+
 public class DynamicProxyTest {
+
+    public static void main(String[] args) {
+        IHello hello = (IHello) new DynamicProxy().bind(new Hello());
+        hello.sayHello();
+    }
 
     interface IHello {
         void sayHello();
@@ -25,11 +32,6 @@ public class DynamicProxyTest {
             System.out.println("welcome");
             return method.invoke(originalObj, args);
         }
-    }
-
-    public static void main(String[] args) {
-        IHello hello = (IHello) new DynamicProxy().bind(new Hello());
-        hello.sayHello();
     }
 }
 
