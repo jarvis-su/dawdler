@@ -1,8 +1,52 @@
 package com.jarvis.db;
 
-/**
- * Created by Jarvis on 10/11/2016.
- */
-public class JdbcUtil {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+public class JdbcUtil {
+    static final String date_format = "yyyyMMddHHmmss";
+
+    public static void main(String[] args) {
+        try (Connection conn = getConnection()) {
+            insertRecords(conn, 100000);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    static Connection getConnection() throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        return DriverManager.getConnection("jdbc:mysql://10.237.88.193:3306/jarvis_db", "jarvis", "mYsqL$%123");
+    }
+
+    static void insertRecords(Connection conn, long number) {
+        StringBuffer sql = new StringBuffer();
+        SimpleDateFormat sdf = new SimpleDateFormat(date_format);
+        for (long l = 0; l < number; l++) {
+            try (Statement stmt = conn.createStatement()) {
+                sql = new StringBuffer("insert into student(NO,name) values('");
+
+                StringBuffer no = new StringBuffer(sdf.format(new Date()));
+                no.append(l % 10000);
+                sql.append(no.toString());
+
+                sql.append("'");
+                sql.append(",'");
+                sql.append("Test");
+                sql.append(l % 10000);
+                sql.append("')");
+                stmt.executeUpdate(sql.toString());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
