@@ -22,7 +22,7 @@ public class JdbcUtil {
     }
 
 
-    static Connection getConnection() throws SQLException, ClassNotFoundException {
+    public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         return DriverManager.getConnection("jdbc:mysql://10.237.88.193:3306/jarvis_db", "jarvis", "mYsqL$%123");
     }
