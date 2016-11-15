@@ -1,3 +1,5 @@
+package profiler.jvm.zzm.chapter12;
+
 /**
  * volatile变量自增运算测试
  * 

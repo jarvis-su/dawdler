@@ -8,7 +8,7 @@ import static java.lang.invoke.MethodHandles.lookup;
 public class Test815 {
 
     public static void main(String[] args) {
-        (new Test().new Son()).thinking();
+        (new Test815().new Son()).thinking();
     }
 
     class GrandFather {

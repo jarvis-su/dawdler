@@ -1,3 +1,5 @@
+package profiler.jvm.zzm.chapter12;
+
 public class Singleton {
 
     private volatile static Singleton instance;

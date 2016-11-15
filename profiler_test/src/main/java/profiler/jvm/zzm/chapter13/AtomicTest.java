@@ -1,8 +1,13 @@
+package profiler.jvm.zzm.chapter13;
+
+
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Atomic变量自增运算测试
- * 
+ *
  * @author zzm
-*/
+ */
 public class AtomicTest {
 
     public static AtomicInteger race = new AtomicInteger(0);

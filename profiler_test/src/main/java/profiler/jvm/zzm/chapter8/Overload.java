@@ -1,5 +1,7 @@
 package profiler.jvm.zzm.chapter8;
 
+import java.io.Serializable;
+
 public class Overload {
 
 	public static void sayHello(Object arg) {
