@@ -6,7 +6,7 @@ import com.sun.btrace.annotations.*;
 
 import static com.sun.btrace.BTraceUtils.*;
 
-@BTrace
+@BTrace(unsafe = true)
 public class TracingScript {
     @OnMethod(
             clazz = "profiler.jvm.zzm.chapter4.BTraceTest",
