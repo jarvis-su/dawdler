@@ -25,6 +25,7 @@
 
 package com.sun.btrace.samples;
 
+
 import com.sun.btrace.AnyType;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
