@@ -8,13 +8,14 @@ import jarvis.utils.PinyinTool;
 public class PinyinToolTest {
     public static void main(String[] args) {
         PinyinTool tool = new PinyinTool();
+        String hanZi = "虤,掱-不对,嬲,姧";
 
         try {
-            System.out.println(tool.toPinYin("苏杰"));
-            System.out.println(tool.toPinYin("苏杰", "_"));
-            System.out.println(tool.toPinYin("苏杰", "_", PinyinTool.Type.FIRSTUPPER));
-            System.out.println(tool.toPinYin("苏杰", " ", PinyinTool.Type.FIRSTUPPER));
-            System.out.println(tool.toPinYin("苏杰", "_", PinyinTool.Type.UPPERCASE));
+            System.out.println(tool.toPinYin(hanZi));
+            System.out.println(tool.toPinYin(hanZi, " "));
+            System.out.println(tool.toPinYin(hanZi, " ", PinyinTool.Type.FIRSTUPPER));
+            System.out.println(tool.toPinYin(hanZi, " ", PinyinTool.Type.FIRSTUPPER));
+            System.out.println(tool.toPinYin(hanZi, " ", PinyinTool.Type.UPPERCASE));
         } catch (Exception e) {
 
         }
