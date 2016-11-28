@@ -25,30 +25,25 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.*;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
-
+import static com.sun.btrace.BTraceUtils.print;
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * This script traces method entry into every method of
+ * every class in javax.swing package! Think before using
+ * this script -- this will slow down your app significantly!!
  */
-@BTrace 
-public class AWTEventTracer {
+@BTrace
+public class AllMethods {
     @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
+            clazz = "/javax\\.swing\\..*/",
+            method = "/.*/"
     )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+    public static void m(@Self Object o, @ProbeClassName String probeClass, @ProbeMethodName String probeMethod) {
+        println("this = " + o);
+        print("entered " + probeClass);
+        println("." + probeMethod);
     }
 }
-

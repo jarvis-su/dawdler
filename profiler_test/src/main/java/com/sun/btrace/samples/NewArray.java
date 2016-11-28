@@ -22,33 +22,42 @@
  * or visit www.oracle.com if you need additional information or have any
  * questions.
  */
-
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
-
-import java.awt.*;
-import java.awt.event.FocusEvent;
+import com.sun.btrace.annotations.*;
 
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * This script demonstrates the possibility to intercept
+ * array creations that are about to be executed from the body of
+ * a certain method. This is achieved by using the {@linkplain Kind#NEWARRAY}
+ * location value.
  */
-@BTrace 
-public class AWTEventTracer {
+@BTrace
+public class NewArray {
+    // component count
+    private static volatile long count;
+
     @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
+            clazz = "/.*/", // tracking in all classes; can be restricted to specific user classes
+            method = "/.*/", // tracking in all methods; can be restricted to specific user methods
+            location = @Location(value = Kind.NEWARRAY, clazz = "char")
     )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+    public static void onnew(@ProbeClassName String pcn, @ProbeMethodName String pmn, String arrType, int dim) {
+        // pcn - allocation place class name
+        // pmn - allocation place method name
+        // **** following two parameters MUST always be in this order
+        // arrType - the actual array type
+        // dim - the array dimension
+
+        // increment counter on new array
+        count++;
+    }
+
+    @OnTimer(2000)
+    public static void print() {
+        // print the counter
+        println("char[] count = " + count);
     }
 }
-

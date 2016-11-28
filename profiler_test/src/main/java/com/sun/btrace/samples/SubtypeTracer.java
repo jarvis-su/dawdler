@@ -27,28 +27,26 @@ package com.sun.btrace.samples;
 
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.ProbeMethodName;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
-
+import static com.sun.btrace.BTraceUtils.print;
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * A simple example that demonstrates subtype matching by +foo pattern
+ * in "clazz" attribute of @OnMethod annotation.
  */
-@BTrace 
-public class AWTEventTracer {
+@BTrace
+public class SubtypeTracer {
     @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
+            clazz = "+java.lang.Runnable",
+            method = "run"
     )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+    public static void onRun(@ProbeClassName String pcn, @ProbeMethodName String pmn) {
+        // on every Runnable.run() method entry print class.method
+        print(pcn);
+        print('.');
+        println(pmn);
     }
 }
-

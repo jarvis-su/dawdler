@@ -23,32 +23,22 @@
  * questions.
  */
 
-package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+#define BTRACE_UTILS import static com.sun.btrace.BTraceUtils.*;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
+#define BTRACE_ANNO import com.sun.btrace.annotations.*;
 
-import static com.sun.btrace.BTraceUtils.println;
+#define BTRACE_IMPORT BTRACE_UTILS \
+                      BTRACE_ANNO
 
-/**
- * This simple script traces every AWT focus event in
- * the target process.
- */
-@BTrace 
-public class AWTEventTracer {
-    @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
-    )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
-    }
-}
+#define BTRACE @BTrace public class
 
+#define VAR public static
+
+#define ACTION public static void
+
+#define EXPORT @Export public static
+
+#define THREAD @Thread public static 
+
+#define PROPERTY @Property public static

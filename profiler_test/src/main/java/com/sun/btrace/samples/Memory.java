@@ -26,29 +26,25 @@
 package com.sun.btrace.samples;
 
 import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.OnTimer;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
-
+import static com.sun.btrace.BTraceUtils.Sys;
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * Simple BTrace program that prints memory
+ * usage once every 4 seconds. It is possible
+ * to modify this to dump heap depending on
+ * used memory crossing a threshold or some other
+ * such condition. [dumpHeap is a built-in function].
  */
-@BTrace 
-public class AWTEventTracer {
-    @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
-    )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+@BTrace
+public class Memory {
+    @OnTimer(4000)
+    public static void printMem() {
+        println("Heap:");
+        println(Sys.Memory.heapUsage());
+        println("Non-Heap:");
+        println(Sys.Memory.nonHeapUsage());
     }
 }
-

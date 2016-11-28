@@ -25,30 +25,26 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
-
-import java.awt.*;
-import java.awt.event.FocusEvent;
+import com.sun.btrace.annotations.*;
 
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * This script demonstrates the possibility to intercept
+ * method calls that are about to be executed from the body of
+ * a certain method. This is achieved by using the {@linkplain Kind#CALL}
+ * location value.
+ * <p>
+ * Not all instances of the method call are intercepted, however.  Sampling
+ * is used to pick only statistically representative ones.
  */
-@BTrace 
-public class AWTEventTracer {
-    @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
-    )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+@BTrace
+public class AllCalls2Sampled {
+    @OnMethod(clazz = "/javax\\.swing\\..*/", method = "/.*/",
+            location = @Location(value = Kind.CALL, clazz = "/.*/", method = "/.*/"))
+    @Sampled
+    public static void n(@Self Object self, @ProbeClassName String pcm, @ProbeMethodName String pmn,
+                         @TargetInstance Object instance, @TargetMethodOrField String method, String text) { // all calls to the methods with signature "(String)"
+        println("Context: " + pcm + "#" + pmn + method + " " + text);
     }
 }
-

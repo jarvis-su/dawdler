@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2008, 2015, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2015, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 2 only, as
  * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the Classpath exception as provided
+ * particular file as subject to the "Classpath" exception as provided
  * by Oracle in the LICENSE file that accompanied this code.
  *
  * This code is distributed in the hope that it will be useful, but WITHOUT
@@ -25,38 +25,55 @@
 
 package com.sun.btrace.samples;
 
+import com.sun.btrace.BTraceUtils;
 import com.sun.btrace.annotations.*;
 
-import static com.sun.btrace.BTraceUtils.identityStr;
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This script traces method/block entry into every method of
+ * This script traces method entry into every method of
  * every class in javax.swing package! Think before using
  * this script -- this will slow down your app significantly!!
- * Note tha Where.BEFORE is default. For synchronized blocks, BEFORE
- * means before "monitorenter" bytecode. For synchronized methods, we
- * can not have probe point Where.BEFORE. Lock is acquired before entering
- * synchronized method. By making the probe point Where.AFTER for SYNC_ENTER,
- * we probe after monitorenter bytecode or synchronized method entry.
  */
 @BTrace
-public class AllSync {
+public class AllMethodsLevels {
+    /**
+     * Capturing only methods invoked from javax.swing.JComponent class.
+     */
     @OnMethod(
-            clazz = "/javax\\.swing\\..*/",
+            clazz = "javax.swing.JComponent",
             method = "/.*/",
-            location = @Location(value = Kind.SYNC_ENTRY, where = Where.AFTER)
+            enableAt = @Level("=0")
     )
-    public static void onSyncEntry(Object obj) {
-        println("after synchronized entry: " + identityStr(obj));
+    public static void l0(@ProbeMethodName(fqn = true) String probeMethod) {
+        println("# " + probeMethod);
     }
 
+    /**
+     * This will intercept all the methods from javax.swing.* classes.
+     */
     @OnMethod(
-            clazz = "/javax\\.swing\\..*/",
+            clazz = "/javax\\.swing\\.*/",
             method = "/.*/",
-            location = @Location(Kind.SYNC_EXIT)
+            enableAt = @Level(">=1")
     )
-    public static void onSyncExit(Object obj) {
-        println("before synchronized exit: " + identityStr(obj));
+    public static void l1(@ProbeMethodName(fqn = true) String probeMethod) {
+        println("## " + probeMethod);
+    }
+
+    /**
+     * Switch to level 0.
+     */
+    @OnEvent("l0")
+    public static void setL0() {
+        BTraceUtils.setInstrumentationLevel(0);
+    }
+
+    /**
+     * Swtitch to level 1.
+     */
+    @OnEvent("l1")
+    public static void setL1() {
+        BTraceUtils.setInstrumentationLevel(1);
     }
 }

@@ -1,11 +1,11 @@
 /*
- * Copyright (c) 2008, 2015, Oracle and/or its affiliates. All rights reserved.
+ * Copyright (c) 2014, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 2 only, as
  * published by the Free Software Foundation.  Oracle designates this
- * particular file as subject to the Classpath exception as provided
+ * particular file as subject to the "Classpath" exception as provided
  * by Oracle in the LICENSE file that accompanied this code.
  *
  * This code is distributed in the hope that it will be useful, but WITHOUT
@@ -25,30 +25,29 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.*;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
-
+import static com.sun.btrace.BTraceUtils.print;
 import static com.sun.btrace.BTraceUtils.println;
 
 /**
- * This simple script traces every AWT focus event in
- * the target process.
+ * This script traces method entry into every method of
+ * every class in javax.swing package. Think before using
+ * this script -- this will slow down your app significantly!!
+ * <p>
+ * Not all calls are intercepted, however. Sampling
+ * is used to pick only statistically representative ones.
  */
-@BTrace 
-public class AWTEventTracer {
+@BTrace
+public class AllMethodsSampled {
     @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
+            clazz = "/javax\\.swing\\..*/",
+            method = "/.*/"
     )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+    @Sampled
+    public static void m(@Self Object o, @ProbeClassName String probeClass, @ProbeMethodName String probeMethod) {
+        println("this = " + o);
+        print("entered " + probeClass);
+        println("." + probeMethod);
     }
 }
-

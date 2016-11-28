@@ -25,30 +25,36 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.*;
 
-import java.awt.*;
-import java.awt.event.FocusEvent;
+import static com.sun.btrace.BTraceUtils.*;
 
-import static com.sun.btrace.BTraceUtils.println;
-
-/**
- * This simple script traces every AWT focus event in
- * the target process.
+/*
+ * This sample demonstrates associating a D-script
+ * with a BTrace program using @DTraceRef annotation.
+ * BTrace client looks for absolute or relative path for
+ * the D-script and submits it to kernel *before* submitting
+ * BTrace program to BTrace agent.
  */
-@BTrace 
-public class AWTEventTracer {
+@DTraceRef("classload.d")
+@BTrace
+public class DTraceRefDemo {
     @OnMethod(
-            clazz = "java.awt.EventQueue",
-            method = "dispatchEvent"
+            clazz = "java.lang.ClassLoader",
+            method = "defineClass"
     )
-    public static void onevent(@Self EventQueue queue, AWTEvent event) {
-        if (event instanceof FocusEvent) {
-            println(event);
-            println();
-        }
+    public static void defineClass() {
+        println("user defined loader load start");
+    }
+
+    @OnMethod(
+            clazz = "java.lang.ClassLoader",
+            method = "defineClass",
+            location = @Location(Kind.RETURN)
+    )
+    public static void defineclass(Class cl) {
+        println("loaded " + Reflective.name(cl));
+        Threads.jstack();
+        println("==========================");
     }
 }
-
