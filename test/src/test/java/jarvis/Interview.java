@@ -27,19 +27,19 @@ public class Interview {
 
     private static void three() {
         System.err.println("gc is not a Java Thread, it is a native thread");
-        Thread.getAllStackTraces().keySet().forEach(thread -> System.out.println(thread.getName() + "->" + thread.isDaemon() + " " + thread.getPriority()));
+//        Thread.getAllStackTraces().keySet().forEach(thread -> System.out.println(thread.getName() + "->" + thread.isDaemon() + " " + thread.getPriority()));
         System.out.println("3. gc线程是daemon线程");
     }
 
     private static void four() {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        for (int j = 0; j < 10; j++) {
-            executorService.submit(() -> {
-                for (int i = 0; i < 1000000; i++) {
-                    count++;
-                }
-            });
-        }
+//        for (int j = 0; j < 10; j++) {
+//            executorService.submit(() -> {
+//                for (int i = 0; i < 1000000; i++) {
+//                    count++;
+//                }
+//            });
+//        }
         System.out.println("count should be: " + 10000000 + ", actual be: " + count);
         System.out.println("4. volatile不能保证线程安全");
     }

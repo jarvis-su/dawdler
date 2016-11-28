@@ -8,7 +8,7 @@ public class Test1303 {
 
     }
 
-    public void removeThread(Vector vector) {
+    public void removeThread(final Vector vector) {
         Thread removeThread = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -21,7 +21,7 @@ public class Test1303 {
         });
     }
 
-    public void printThread(Vector vector) {
+    public void printThread(final Vector vector) {
         Thread printThread = new Thread(new Runnable() {
             @Override
             public void run() {
