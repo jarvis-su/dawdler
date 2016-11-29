@@ -1,4 +1,4 @@
-package profiler.jvm.jarvis.btrace.t1;
+package profiler.jvm.jarvis.btrace.ss2;
 
 public class Counter {
     private static int totalCount = 0;

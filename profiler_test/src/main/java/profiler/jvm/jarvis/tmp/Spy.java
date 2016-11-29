@@ -1,4 +1,4 @@
-package profiler.jvm.jarvis.btrace;
+package profiler.jvm.jarvis.tmp;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,8 +13,8 @@ public class Spy implements Runnable {
     static Map<String, String> commands = new HashMap<String, String>();
 
     static {
-        commands.put("1", "profiler.jvm.jarvis.btrace.Foo1Command");
-        commands.put("2", "profiler.jvm.jarvis.btrace.Foo2Command");
+        commands.put("1", "profiler.jvm.jarvis.btrace.ss3.Foo1Command");
+        commands.put("2", "profiler.jvm.jarvis.btrace.ss3.Foo2Command");
     }
 
     @Override

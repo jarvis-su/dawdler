@@ -1,4 +1,4 @@
-package profiler.jvm.jarvis.btrace;
+package profiler.jvm.jarvis.btrace.ss1;
 
 import java.io.BufferedReader;
 import java.io.File;

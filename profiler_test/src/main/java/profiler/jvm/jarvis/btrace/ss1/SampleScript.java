@@ -1,8 +1,9 @@
-package profiler.jvm.jarvis.btrace;
+package profiler.jvm.jarvis.btrace.ss1;
 
 import com.sun.btrace.AnyType;
 import com.sun.btrace.BTraceUtils;
 import com.sun.btrace.annotations.*;
+import profiler.jvm.jarvis.tmp.Foo1Command;
 
 @BTrace(unsafe = true)
 public class SampleScript {

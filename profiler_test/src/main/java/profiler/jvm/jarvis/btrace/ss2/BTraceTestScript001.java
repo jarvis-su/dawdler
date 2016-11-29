@@ -1,4 +1,4 @@
-package profiler.jvm.jarvis.btrace.s1;
+package profiler.jvm.jarvis.btrace.ss2;
 
 import com.sun.btrace.annotations.*;
 
@@ -7,7 +7,7 @@ import static com.sun.btrace.BTraceUtils.*;
 @BTrace
 public class BTraceTestScript001 {
     @OnMethod(
-            clazz = "profiler.jvm.jarvis.btrace.t1.Counter",
+            clazz = "profiler.jvm.jarvis.btrace.ss2.Counter",
             method = "add",
             location = @Location(Kind.RETURN)
     )

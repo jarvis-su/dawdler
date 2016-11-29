@@ -9,7 +9,7 @@ import static com.sun.btrace.BTraceUtils.*;
 @BTrace(unsafe = true)
 public class TracingScript {
     @OnMethod(
-            clazz = "profiler.jvm.zzm.chapter4.BTraceTest",
+            clazz = "profiler.jvm.zzm.chapter4.BTraceTest002",
             method = "add",
             location = @Location(Kind.RETURN)
     )
