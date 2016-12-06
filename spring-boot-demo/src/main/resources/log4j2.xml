@@ -54,7 +54,7 @@
         <logger name="com.mchange.v2" level="warn">
         </logger>
         <!-- APP Stat logger -->
-        <logger name="com.allcam.uas" level="info"
+        <logger name="com.jarvis" level="info"
                 additivity="false">
             <appender-ref ref="ProductLog"/>
         </logger>
