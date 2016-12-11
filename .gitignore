@@ -15,3 +15,4 @@
 /test/*log.log*
 /utility/*log.log*
 test/src/main/java/profiler/
+/log

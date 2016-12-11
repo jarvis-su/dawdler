@@ -1,5 +1,6 @@
 package com.jarvis.aspect;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -19,9 +20,8 @@ import java.util.Arrays;
 @Order(5)
 @Component
 public class WebLogAspect {
-    private Logger logger = LogManager.getLogger(WebLogAspect.class.getName());
-
     ThreadLocal<Long> startTime = new ThreadLocal<>();
+    private Logger logger = LogManager.getLogger(WebLogAspect.class.getName());
 
     @Pointcut("execution(public * com.jarvis.web..*.*(..))")
     public void webLog() {
@@ -41,6 +41,7 @@ public class WebLogAspect {
         logger.info("IP : " + request.getRemoteAddr());
         logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
         logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+        logger.log(Level.DEBUG, "Another debug");
 
     }
 
