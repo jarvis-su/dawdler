@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * -Xshare:off
- * -javaagent:D:\repo\com\sun\tools\btrace\btrace-agent\1.2.3\btrace-agent-1.2.3.jar=script=D:\dev\dawdler\profiler_test\target\classes\profiler\jvm\zzm\chapter4\TracingScript.class,debug=true,unsafe=true,dumpClasses=true
+ * -javaagent:D:\repo\com\sun\tools\btrace\btrace-agent\1.2.3\btrace-agent-1.2.3.jar=script=D:\dev\dawdler\profiler_test\target\classes\profiler\jvm\zzm\chapter4\TracingScript001.class,debug=true,unsafe=true,dumpClasses=true
  */
 public class BTraceTest {
 
