@@ -52,10 +52,10 @@ public class TracingScript002 {
     )
 /*主要两个参数是对象自己的引用 和 返回值，其它参数都是方法调用时传入的参数*/
     public static void traceExecute(@Self profiler.jvm.jarvis.btrace.ss4.CaseObject object, int sleepTime, @Return boolean result) {
-        dealLog("调用堆栈！！");
-        dealLog(strcat("返回结果是：", str(result)));
+        println("调用堆栈！！");
+        println(strcat("返回结果是：", str(result)));
         jstack();
-        dealLog(strcat("时间是：", str(sleepTime)));
+        println(strcat("时间是：", str(sleepTime)));
     }
 
 }

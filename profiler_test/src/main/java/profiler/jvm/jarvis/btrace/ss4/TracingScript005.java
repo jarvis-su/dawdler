@@ -49,23 +49,23 @@ public class TracingScript005 {
     )
     public static void traceExecute(@ProbeClassName String pcm, @ProbeMethodName String pmn,
                                     @TargetInstance Object instance, @TargetMethodOrField String method) {
-        dealLog("====== ");
-        dealLog(strcat("ProbeClassName: ", pcm));
-        dealLog(strcat("ProbeMethodName: ", pmn));
-        dealLog(strcat("TargetInstance: ", str(classOf(instance))));
-        dealLog(strcat("TargetMethodOrField : ", str(method)));
+        println("====== ");
+        println(strcat("ProbeClassName: ", pcm));
+        println(strcat("ProbeMethodName: ", pmn));
+        println(strcat("TargetInstance: ", str(classOf(instance))));
+        println(strcat("TargetMethodOrField : ", str(method)));
         count++;
     }
 
     @OnEvent
     public static void getCount() {
-        dealLog(strcat("count: ", str(count)));
+        println(strcat("count: ", str(count)));
     }
 
     @OnEvent("A")
     public static void getCountA() {
-        dealLog("==AAAA==== ");
-        dealLog(strcat("count: ", str(count)));
+        println("==AAAA==== ");
+        println(strcat("count: ", str(count)));
     }
 
     @OnEvent("B")

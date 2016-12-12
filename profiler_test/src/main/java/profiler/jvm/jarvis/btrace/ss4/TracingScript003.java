@@ -59,7 +59,7 @@ public class TracingScript003 {
     )
     public static void endExecute(@Duration long duration) {
         long time = timeNanos() - startTime;
-        dealLog(strcat("execute time(nanos): ", str(time)));
-        dealLog(strcat("duration(nanos): ", str(duration)));
+        println(strcat("execute time(nanos): ", str(time)));
+        println(strcat("duration(nanos): ", str(duration)));
     }
 }

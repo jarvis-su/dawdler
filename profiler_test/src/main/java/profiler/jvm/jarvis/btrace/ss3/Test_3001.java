@@ -26,7 +26,7 @@ public class Test_3001 {
             list.add("String " + Integer.toString(i));
             logger.log(Level.DEBUG, "new item is " + Integer.toString(i));
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
