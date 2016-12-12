@@ -2,10 +2,44 @@ package profiler.jvm.jarvis.btrace.ss4;
 
 import com.sun.btrace.annotations.*;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import static com.sun.btrace.BTraceUtils.*;
 
-@BTrace
+@BTrace(unsafe=true)
 public class TracingScript004 {
+
+    private static final Object mutex = new Object();
+    private static BufferedWriter bw = null;
+    private static boolean inited = false;
+    private static void init() {
+        try {
+            bw = new BufferedWriter(new PrintWriter(new File("D:/log/t.log")));
+            bw.write("test ");
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        inited = true;
+    }
+
+    public static void dealLog(String log) {
+        synchronized (mutex) {
+            try {
+                if (!inited) {
+                    init();
+                }
+                bw.write(log + "\n");
+                bw.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     private static long count;
 
     @OnMethod(
@@ -15,16 +49,16 @@ public class TracingScript004 {
     )
     public static void traceExecute(@ProbeClassName String pcm, @ProbeMethodName String pmn,
                                     @TargetInstance Object instance, @TargetMethodOrField String method) {
-        println("====== ");
-        println(strcat("ProbeClassName: ", pcm));
-        println(strcat("ProbeMethodName: ", pmn));
-        println(strcat("TargetInstance: ", str(classOf(instance))));
-        println(strcat("TargetMethodOrField : ", str(method)));
+        dealLog("====== ");
+        dealLog(strcat("ProbeClassName: ", pcm));
+        dealLog(strcat("ProbeMethodName: ", pmn));
+        dealLog(strcat("TargetInstance: ", str(classOf(instance))));
+        dealLog(strcat("TargetMethodOrField : ", str(method)));
         count++;
     }
 
     @OnEvent
     public static void getCount() {
-        println(strcat("count: ", str(count)));
+        dealLog(strcat("count: ", str(count)));
     }
 }

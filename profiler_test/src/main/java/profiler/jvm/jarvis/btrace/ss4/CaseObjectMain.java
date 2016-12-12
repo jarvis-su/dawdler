@@ -1,8 +1,13 @@
 package profiler.jvm.jarvis.btrace.ss4;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Random;
 
 public class CaseObjectMain {
+    private static Logger logger = LogManager.getLogger(CaseObjectMain.class.getName());
+
     int times = 10;
 
     public static void main(String[] args) {
@@ -10,8 +15,7 @@ public class CaseObjectMain {
         try {
             main.begin();
         } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.error(e.getMessage());
         }
     }
 

@@ -3,10 +3,44 @@ package profiler.jvm.jarvis.btrace.ss4;
 
 import com.sun.btrace.annotations.*;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import static com.sun.btrace.BTraceUtils.*;
 
-@BTrace
+@BTrace(unsafe=true)
 public class TracingScript003 {
+
+    private static final Object mutex = new Object();
+    private static BufferedWriter bw = null;
+    private static boolean inited = false;
+    private static void init() {
+        try {
+            bw = new BufferedWriter(new PrintWriter(new File("D:/log/t.log")));
+            bw.write("test ");
+            bw.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        inited = true;
+    }
+
+    public static void dealLog(String log) {
+        synchronized (mutex) {
+            try {
+                if (!inited) {
+                    init();
+                }
+                bw.write(log + "\n");
+                bw.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     @TLS
     private static long startTime = 0;
 
@@ -25,7 +59,7 @@ public class TracingScript003 {
     )
     public static void endExecute(@Duration long duration) {
         long time = timeNanos() - startTime;
-        println(strcat("execute time(nanos): ", str(time)));
-        println(strcat("duration(nanos): ", str(duration)));
+        dealLog(strcat("execute time(nanos): ", str(time)));
+        dealLog(strcat("duration(nanos): ", str(duration)));
     }
 }
