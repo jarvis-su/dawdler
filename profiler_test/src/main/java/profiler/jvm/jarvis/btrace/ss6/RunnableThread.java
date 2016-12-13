@@ -1,9 +1,9 @@
-package profiler.jvm.jarvis.btrace.ss5;
+package profiler.jvm.jarvis.btrace.ss6;
 
 /**
  * Created by Jarvis on 12/12/2016.
  */
-public class MyThread1 implements Runnable {
+public class RunnableThread implements Runnable {
     private int ticket = 10;
     private String name;
 
