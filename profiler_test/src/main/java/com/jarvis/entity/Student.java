@@ -4,8 +4,17 @@ package com.jarvis.entity;
  * Created by C5023792 on 11/15/2016.
  */
 public class Student {
-    String no;
-    String name;
+
+    private static final int _1MB = 1024 * 1024;
+    private static final int SIZE = 1;
+    private byte[] bigSize = new byte[SIZE * _1MB];
+
+    private String no;
+    private String name;
+
+    public Student() {
+        this.bigSize = new byte[SIZE * _1MB];
+    }
 
     public String getNo() {
         return no;

@@ -12,7 +12,7 @@ public class JdbcUtil {
 
     public static void main(String[] args) {
         try (Connection conn = getConnection()) {
-            insertRecords(conn, 100000);
+            insertRecords(conn, 1000000);
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -24,7 +24,7 @@ public class JdbcUtil {
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://10.237.88.193:3306/jarvis_db", "jarvis", "mYsqL$%123");
+        return DriverManager.getConnection("jdbc:mysql://192.168.31.100:3306/jarvis_db", "jarvis_db", "mYsqL$%123");
     }
 
     static void insertRecords(Connection conn, long number) {
