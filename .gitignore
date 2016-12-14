@@ -11,7 +11,7 @@
 *.project
 
 *.class
-
+*.log
 /test/*log.log*
 /utility/*log.log*
 test/src/main/java/profiler/
