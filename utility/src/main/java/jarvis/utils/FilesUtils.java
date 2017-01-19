@@ -86,7 +86,7 @@ public class FilesUtils {
         }
     }
 
-    public static boolean Move(File srcFile, String destPath) {
+    public static boolean moveToDest(File srcFile, String destPath) {
         // Destination directory
         File dir = new File(destPath);
         // Move file to new directory
@@ -178,7 +178,7 @@ public class FilesUtils {
         } catch (IOException e) {
             logger.info(e.getMessage());
         } finally {
-            if (null != fc){
+            if (null != fc) {
                 try {
                     fc.close();
                 } catch (IOException e) {
@@ -189,19 +189,22 @@ public class FilesUtils {
         return fileSizeInByte;
     }
 
-    public static List<File> getAllFiles(String filePath){
+    public static List<File> getAllFiles(String filePath) {
         List<File> filesList = new ArrayList<>();
+        if (filePath.startsWith(".")) {
+            return filesList;
+        }
         File path = new File(filePath);
-        if(path.exists() && path.isDirectory()){
+        if (path.exists() && path.isDirectory()) {
             File[] files = path.listFiles();
-            for(File f : files){
-                if(f.exists() && f.isDirectory()){
+            for (File f : files) {
+                if (f.exists() && f.isDirectory()) {
                     filesList.addAll(getAllFiles(f.getAbsolutePath()));
                 }
                 filesList.add(f);
             }
         }
-      return filesList;
+        return filesList;
 
     }
 }
