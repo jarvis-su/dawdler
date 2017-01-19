@@ -16,7 +16,7 @@ import logging.util.CustomLogManager;
  */
 public class FilesUtilsEnhance extends FilesUtils {
 
-    private static Logger logger = CustomLogManager.getLogger(FilesUtils.class.getName());
+    private static Logger logger = CustomLogManager.getLogger(FilesUtilsEnhance.class.getName());
 
 
     public static void fileChannelCopy(File sFile, File dFile) {

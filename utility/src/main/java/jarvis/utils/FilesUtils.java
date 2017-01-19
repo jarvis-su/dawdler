@@ -1,13 +1,14 @@
 package jarvis.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.channels.FileChannel;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
+import logging.util.CustomLogManager;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -17,6 +18,7 @@ import org.apache.commons.lang.StringUtils;
  * @date 1/22/2016
  */
 public class FilesUtils {
+    private static Logger logger = CustomLogManager.getLogger(FilesUtils.class.getName());
 
     public static long copyFile(File file, String destFolder) {
         long beginDateTime = DateUtils.getCurrTimeInMillisecs();
@@ -112,7 +114,7 @@ public class FilesUtils {
     private static int filesToBeCopied = -1;
     // 要创建的线程数
     @SuppressWarnings("unused")
-	private static int THREAD_COUNT = 4;
+    private static int THREAD_COUNT = 4;
     private static int n = 0;
     private static String sourcePath;
     private static String _destPath;
@@ -157,5 +159,49 @@ public class FilesUtils {
 
     public static String getTargetFilePath() {
         return _destPath;
+    }
+
+
+    public static long getFileSize(File file) {
+        long fileSizeInByte = 0;
+        FileChannel fc = null;
+        try {
+            if (file.exists() && file.isFile()) {
+                FileInputStream fis = new FileInputStream(file);
+                fc = fis.getChannel();
+                fileSizeInByte = fc.size();
+            } else {
+                logger.info("file doesn't exist or is not a file");
+            }
+        } catch (FileNotFoundException e) {
+            logger.info(e.getMessage());
+        } catch (IOException e) {
+            logger.info(e.getMessage());
+        } finally {
+            if (null != fc){
+                try {
+                    fc.close();
+                } catch (IOException e) {
+                    logger.info(e.getMessage());
+                }
+            }
+        }
+        return fileSizeInByte;
+    }
+
+    public static List<File> getAllFiles(String filePath){
+        List<File> filesList = new ArrayList<>();
+        File path = new File(filePath);
+        if(path.exists() && path.isDirectory()){
+            File[] files = path.listFiles();
+            for(File f : files){
+                if(f.exists() && f.isDirectory()){
+                    filesList.addAll(getAllFiles(f.getAbsolutePath()));
+                }
+                filesList.add(f);
+            }
+        }
+      return filesList;
+
     }
 }

@@ -22,6 +22,7 @@
         <module>OAuth-client</module>
 
         <module>profiler_test</module>
+		<module>filesSync</module>
     </modules>
 
     <profiles>
