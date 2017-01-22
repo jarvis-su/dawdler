@@ -24,7 +24,7 @@ public class JdbcUtil {
 
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
-        return DriverManager.getConnection("jdbc:mysql://192.168.31.100:3306/jarvis_db", "jarvis_db", "mYsqL$%123");
+        return DriverManager.getConnection("jdbc:mysql://192.168.31.117:3306/jarvis_db", "jarvis_db", "mYsqL$%123");
     }
 
     static void insertRecords(Connection conn, long number) {
