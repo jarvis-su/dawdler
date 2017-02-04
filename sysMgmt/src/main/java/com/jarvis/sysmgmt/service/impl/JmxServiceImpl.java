@@ -3,7 +3,10 @@ package com.jarvis.sysmgmt.service.impl;
 import com.jarvis.sysmgmt.service.JmxService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.management.*;
 import javax.management.remote.JMXConnector;
 import javax.management.remote.JMXConnectorFactory;
@@ -15,9 +18,25 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+@Service
 public class JmxServiceImpl implements JmxService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @PostConstruct
+    public void init() {
+        logger.info("jsr250-init-method");
+    }
+
+    public JmxServiceImpl() {
+        super();
+        logger.info(" init the service  ");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        logger.info("jsr250-destory-method");
+    }
 
     @Override
     public void getAllActiveTasks() {
@@ -56,14 +75,14 @@ public class JmxServiceImpl implements JmxService {
 
 
             @SuppressWarnings("unchecked")
-			List<String> attris = (List<String>) mbsc.getAttribute(mbeanName, "ActiveScheduledTasks");
+            List<String> attris = (List<String>) mbsc.getAttribute(mbeanName, "ActiveScheduledTasks");
             for (String attri : attris) {
                 echo("ActiveScheduledTask: " + attri);
             }
             echo("\nClose the connection to the server");
-    		jmxc.close();
-    		echo("\nBye! Bye!");
-    		
+            jmxc.close();
+            echo("\nBye! Bye!");
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException | ReflectionException | InstanceNotFoundException | AttributeNotFoundException | MBeanException | MalformedObjectNameException e) {
