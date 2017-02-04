@@ -1,4 +1,4 @@
-package com.jarvis.web;
+package com.jarvis.sysmgmt.web;
 
 
 import org.springframework.beans.factory.annotation.Value;

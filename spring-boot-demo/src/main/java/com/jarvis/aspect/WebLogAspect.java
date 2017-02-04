@@ -23,7 +23,7 @@ public class WebLogAspect {
     ThreadLocal<Long> startTime = new ThreadLocal<>();
     private Logger logger = LogManager.getLogger(WebLogAspect.class.getName());
 
-    @Pointcut("execution(public * com.jarvis.web..*.*(..))")
+    @Pointcut("execution(public * com.jarvis.sysmgmt.web..*.*(..))")
     public void webLog() {
     }
 

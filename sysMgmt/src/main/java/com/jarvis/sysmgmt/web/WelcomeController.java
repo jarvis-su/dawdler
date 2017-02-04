@@ -1,4 +1,4 @@
-package com.jarvis.web;
+package com.jarvis.sysmgmt.web;
 
 import com.jarvis.SysMgmtException;
 import com.jarvis.SysMgmtRestResponse;
