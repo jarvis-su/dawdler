@@ -1,22 +1,33 @@
 package com.jarvis.sysmgmt.service.impl;
 
-import com.jarvis.sysmgmt.service.JmxService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.management.*;
-import javax.management.remote.JMXConnector;
-import javax.management.remote.JMXConnectorFactory;
-import javax.management.remote.JMXServiceURL;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.management.AttributeChangeNotification;
+import javax.management.AttributeNotFoundException;
+import javax.management.InstanceNotFoundException;
+import javax.management.MBeanException;
+import javax.management.MBeanServerConnection;
+import javax.management.MalformedObjectNameException;
+import javax.management.Notification;
+import javax.management.NotificationListener;
+import javax.management.ObjectName;
+import javax.management.ReflectionException;
+import javax.management.remote.JMXConnector;
+import javax.management.remote.JMXConnectorFactory;
+import javax.management.remote.JMXServiceURL;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.jarvis.sysmgmt.service.JmxService;
 
 @Service
 public class JmxServiceImpl implements JmxService {
@@ -40,7 +51,7 @@ public class JmxServiceImpl implements JmxService {
 
     @Override
     public void getAllActiveTasks() {
-        echo("\nCreate an RMI connector client and " +
+        logger.info("\nCreate an RMI connector client and " +
                 "connect it to the RMI connector server");
         String serviceURL = "service:jmx:rmi:///jndi/rmi://:9999/jmxrmi";
         serviceURL = "service:jmx:rmi:///jndi/rmi://10.237.89.205:7779/jmxrmi";
@@ -50,23 +61,23 @@ public class JmxServiceImpl implements JmxService {
             url = new JMXServiceURL(serviceURL);
             jmxc = JMXConnectorFactory.connect(url, null);
             ClientListener listener = new ClientListener();
-            echo("\nGet an MBeanServerConnection");
+            logger.info("\nGet an MBeanServerConnection");
             MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
-            echo("\nDomains:");
+            logger.info("\nDomains:");
             String domains[] = mbsc.getDomains();
             Arrays.sort(domains);
             for (String domain : domains) {
-                echo("\tDomain = " + domain);
+                logger.info("\tDomain = " + domain);
             }
 
-            echo("\nMBeanServer default domain = " + mbsc.getDefaultDomain());
-            echo("\nMBean count = " + mbsc.getMBeanCount());
-            echo("\nQuery MBeanServer MBeans:");
+            logger.info("\nMBeanServer default domain = " + mbsc.getDefaultDomain());
+            logger.info("\nMBean count = " + mbsc.getMBeanCount());
+            logger.info("\nQuery MBeanServer MBeans:");
             Set<ObjectName> names = new TreeSet<>(mbsc.queryNames(null, null));
             for (ObjectName name : names) {
-                echo("\tObjectName = " + name);
+                logger.info("\tObjectName = " + name);
             }
-            echo("\n>>> Perform operations on EPPIC MBean <<<");
+            logger.info("\n>>> Perform operations on EPPIC MBean <<<");
             ObjectName mbeanName = new ObjectName("sms:name=Scheduler");
             //MBeanInfo mi = mbsc.getMBeanInfo(mbeanName);
 
@@ -77,11 +88,11 @@ public class JmxServiceImpl implements JmxService {
             @SuppressWarnings("unchecked")
             List<String> attris = (List<String>) mbsc.getAttribute(mbeanName, "ActiveScheduledTasks");
             for (String attri : attris) {
-                echo("ActiveScheduledTask: " + attri);
+                logger.info("ActiveScheduledTask: " + attri);
             }
-            echo("\nClose the connection to the server");
+            logger.info("\nClose the connection to the server");
             jmxc.close();
-            echo("\nBye! Bye!");
+            logger.info("\nBye! Bye!");
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -91,26 +102,21 @@ public class JmxServiceImpl implements JmxService {
 
     }
 
-
-    private void echo(String msg) {
-        logger.info(msg);
-    }
-
     public class ClientListener implements NotificationListener {
         @Override
         public void handleNotification(Notification notification,
                                        Object handback) {
-            echo("\nReceived notification:");
-            echo("\tClassName: " + notification.getClass().getName());
-            echo("\tSource: " + notification.getSource());
-            echo("\tType: " + notification.getType());
-            echo("\tMessage: " + notification.getMessage());
+            logger.info("\nReceived notification:");
+            logger.info("\tClassName: " + notification.getClass().getName());
+            logger.info("\tSource: " + notification.getSource());
+            logger.info("\tType: " + notification.getType());
+            logger.info("\tMessage: " + notification.getMessage());
             if (notification instanceof AttributeChangeNotification) {
                 AttributeChangeNotification acn = (AttributeChangeNotification) notification;
-                echo("\tAttributeName: " + acn.getAttributeName());
-                echo("\tAttributeType: " + acn.getAttributeType());
-                echo("\tNewValue: " + acn.getNewValue());
-                echo("\tOldValue: " + acn.getOldValue());
+                logger.info("\tAttributeName: " + acn.getAttributeName());
+                logger.info("\tAttributeType: " + acn.getAttributeType());
+                logger.info("\tNewValue: " + acn.getNewValue());
+                logger.info("\tOldValue: " + acn.getOldValue());
             }
         }
     }
