@@ -1,4 +1,4 @@
-package com.jarvis.web;
+package com.jarvis.sysmgmt.web;
 
 import org.springframework.web.bind.annotation.*;
 
