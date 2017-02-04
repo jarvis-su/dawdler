@@ -26,9 +26,10 @@ public class JmxServiceImpl implements JmxService {
         String serviceURL = "service:jmx:rmi:///jndi/rmi://:9999/jmxrmi";
         serviceURL = "service:jmx:rmi:///jndi/rmi://10.237.89.205:7779/jmxrmi";
         JMXServiceURL url = null;
+        JMXConnector jmxc = null;
         try {
             url = new JMXServiceURL(serviceURL);
-            JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
+            jmxc = JMXConnectorFactory.connect(url, null);
             ClientListener listener = new ClientListener();
             echo("\nGet an MBeanServerConnection");
             MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
@@ -42,7 +43,7 @@ public class JmxServiceImpl implements JmxService {
             echo("\nMBeanServer default domain = " + mbsc.getDefaultDomain());
             echo("\nMBean count = " + mbsc.getMBeanCount());
             echo("\nQuery MBeanServer MBeans:");
-            Set<ObjectName> names = new TreeSet<ObjectName>(mbsc.queryNames(null, null));
+            Set<ObjectName> names = new TreeSet<>(mbsc.queryNames(null, null));
             for (ObjectName name : names) {
                 echo("\tObjectName = " + name);
             }
@@ -54,10 +55,15 @@ public class JmxServiceImpl implements JmxService {
                     new String[]{String.class.getName(), String.class.getName(), String.class.getName()});
 
 
-            List<String> attris = (List<String>) mbsc.getAttribute(mbeanName, "ActiveScheduledTasks");
+            @SuppressWarnings("unchecked")
+			List<String> attris = (List<String>) mbsc.getAttribute(mbeanName, "ActiveScheduledTasks");
             for (String attri : attris) {
                 echo("ActiveScheduledTask: " + attri);
             }
+            echo("\nClose the connection to the server");
+    		jmxc.close();
+    		echo("\nBye! Bye!");
+    		
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException | ReflectionException | InstanceNotFoundException | AttributeNotFoundException | MBeanException | MalformedObjectNameException e) {
