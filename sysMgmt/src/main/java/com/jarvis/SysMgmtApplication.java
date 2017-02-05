@@ -1,6 +1,7 @@
 package com.jarvis;
 
 import com.jarvis.sysmgmt.web.reading.list.ReaderHandlerMethodArgumentResolver;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -11,6 +12,7 @@ import java.util.List;
 
 
 @SpringBootApplication
+@MapperScan("com.jarvis.mapper")
 public class SysMgmtApplication extends WebMvcConfigurerAdapter {
     public static void main(String[] args) {
         SpringApplication.run(SysMgmtApplication.class, args);
