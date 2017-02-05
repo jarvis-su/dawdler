@@ -3,7 +3,7 @@ package jarvis.test;
 /**
  * Created by C5023792 on 11/30/2016.
  */
-public class Test {
+public class Test123 {
     public static void main(String[] args) {
 
         Integer a = 1000, b = 1000;
