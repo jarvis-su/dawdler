@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="default">
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/sys_mgmt" driverClass="com.mysql.jdbc.Driver"
+                        password="mYsqL$%123" userId="sys_mgmt"/>
+        <javaModelGenerator targetPackage="com.jarvis.mapper.module" targetProject="src/main/java"/>
+        <sqlMapGenerator targetPackage="com.jarvis.mapper.xml" targetProject="src/main/resources"/>
+        <javaClientGenerator targetPackage="com.jarvis.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+        <table schema="sys_mgmt" tableName="USERS">
+        </table>
+    </context>
+</generatorConfiguration>

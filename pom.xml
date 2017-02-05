@@ -23,6 +23,7 @@
 
         <module>profiler_test</module>
         <module>filesSync</module>
+        <module>MyBatis_Gen</module>
         <module>sysMgmt</module>
     </modules>
 
