@@ -28,13 +28,21 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table schema="sys_mgmt" tableName="USERS" />
 		<table schema="sys_mgmt" tableName="STATUS" />
-		<table schema="sys_mgmt" tableName="ROLE" />
+		<table schema="sys_mgmt" tableName="RESPONSE_TYPE"/>
+		<table schema="sys_mgmt" tableName="TRANSACTION_TYPE"/>
+		<table schema="sys_mgmt" tableName="PRIVILEGES"/>
 		<table schema="sys_mgmt" tableName="USER_TYPES" />
+		<table schema="sys_mgmt" tableName="USER_TYPE_PRIVILEGES"/>
+		<table schema="sys_mgmt" tableName="ROLE"/>
+		<table schema="sys_mgmt" tableName="ROLE_PRIVILEGES"/>
+		<table schema="sys_mgmt" tableName="USERS"/>
+		<table schema="sys_mgmt" tableName="USER_TRX_HIS"/>
+		<table schema="sys_mgmt" tableName="TRANSACTION_USERS"/>
 		<table schema="sys_mgmt" tableName="READER" />
 		<table schema="sys_mgmt" tableName="BOOK">
 			<generatedKey column="ID" sqlStatement="MySql" identity="true" />
 		</table>
+
 	</context>
 </generatorConfiguration>
