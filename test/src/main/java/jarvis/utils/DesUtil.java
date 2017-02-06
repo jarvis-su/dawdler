@@ -1,15 +1,16 @@
 package jarvis.utils;
 
-import org.apache.commons.codec.digest.DigestUtils;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.io.IOException;
+import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-import java.io.IOException;
-import java.security.SecureRandom;
+
+import org.apache.commons.codec.digest.DigestUtils;
+
+import org.apache.commons.codec.binary.Base64;
 
 /**
  * DesUtil
@@ -39,12 +40,11 @@ public class DesUtil {
      */
     public static String encrypt(String data, String key) throws Exception {
         byte[] bt = encrypt(data.getBytes(), key.getBytes());
-        String strs = new BASE64Encoder().encode(bt);
+        String strs = Base64.encodeBase64URLSafeString(bt);
         return strs;
     }
 
-    /**
-     * `
+    /**`
      * Description 根据键值进行解密
      *
      * @param data
@@ -57,8 +57,7 @@ public class DesUtil {
             Exception {
         if (data == null)
             return null;
-        BASE64Decoder decoder = new BASE64Decoder();
-        byte[] buf = decoder.decodeBuffer(data);
+        byte[] buf = Base64.decodeBase64(data);
         byte[] bt = decrypt(buf, key.getBytes());
         return new String(bt);
     }
