@@ -28,19 +28,22 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="sys_mgmt" tableName="STATUS"/>
-        <table schema="sys_mgmt" tableName="RESPONSE_TYPE"/>
-        <table schema="sys_mgmt" tableName="TRANSACTION_TYPE"/>
-        <table schema="sys_mgmt" tableName="PRIVILEGES"/>
-        <table schema="sys_mgmt" tableName="USER_TYPES"/>
-        <table schema="sys_mgmt" tableName="USER_TYPE_PRIVILEGES"/>
-        <table schema="sys_mgmt" tableName="ROLE"/>
-        <table schema="sys_mgmt" tableName="ROLE_PRIVILEGES"/>
-        <table schema="sys_mgmt" tableName="USERS"/>
-        <table schema="sys_mgmt" tableName="USER_TRX_HIS"/>
-        <table schema="sys_mgmt" tableName="TRANSACTION_USERS"/>
-        <table schema="sys_mgmt" tableName="READER"/>
-        <table schema="sys_mgmt" tableName="BOOK">
+        <table schema="jarvis_db" tableName="STATUS"/>
+        <table schema="jarvis_db" tableName="RESPONSE_TYPE"/>
+        <table schema="jarvis_db" tableName="TRANSACTION_TYPE"/>
+        <table schema="jarvis_db" tableName="PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="USER_TYPES"/>
+        <table schema="jarvis_db" tableName="USER_TYPE_PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="ROLE"/>
+        <table schema="jarvis_db" tableName="ROLE_PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="USERS"/>
+        <table schema="jarvis_db" tableName="USER_TRX_HIS"/>
+        <table schema="jarvis_db" tableName="TRANSACTION_USERS"/>
+        <table schema="jarvis_db" tableName="READER"/>
+        <table schema="jarvis_db" tableName="BOOK">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="jarvis_db" tableName="FILES">
             <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
         </table>
 

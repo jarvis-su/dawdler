@@ -15,6 +15,4 @@
 /utility/*log.log*
 /log
 
-/MyBatis_Gen/src/main/java/com/jarvis/mapper/
-/MyBatis_Gen/src/main/resources/com/jarvis/mapper/xml/*.xml
 
