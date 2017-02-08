@@ -207,4 +207,22 @@ public class FilesUtils {
         return filesList;
 
     }
+
+    public static void removeFile(File file) {
+        if (null != file) {
+            file.delete();
+        }
+    }
+
+    public static boolean isEmptyFolder(File folder) {
+        if (null != folder && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files.length > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 }
