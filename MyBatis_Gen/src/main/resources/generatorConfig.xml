@@ -43,7 +43,7 @@
         <table schema="jarvis_db" tableName="BOOK">
             <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="jarvis_db" tableName="FILES">
+        <table schema="jarvis_db" tableName="LOC_FILES">
             <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
         </table>
 
