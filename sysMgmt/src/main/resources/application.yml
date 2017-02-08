@@ -12,9 +12,9 @@ logging:
 
 spring:
     datasource:
-        name: sys_mgmt
-        url: jdbc:mysql://localhost:3306/sys_mgmt
-        username: sys_mgmt
+        name: jarvis_db
+        url: jdbc:mysql://localhost:3306/jarvis_db
+        username: jarvis_db
         password: mYsqL$%123
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
