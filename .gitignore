@@ -10,10 +10,11 @@
 *.classpath
 *.project
 
-*.class
 *.log
 /test/*log.log*
 /utility/*log.log*
-test/src/main/java/profiler/
 /log
-/profiler
+
+/MyBatis_Gen/src/main/java/com/jarvis/mapper/
+/MyBatis_Gen/src/main/resources/com/jarvis/mapper/xml/*.xml
+

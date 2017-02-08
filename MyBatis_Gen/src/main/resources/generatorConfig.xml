@@ -2,13 +2,47 @@
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
-    <context id="default">
-        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/sys_mgmt" driverClass="com.mysql.jdbc.Driver"
-                        password="mYsqL$%123" userId="sys_mgmt"/>
-        <javaModelGenerator targetPackage="com.jarvis.mapper.module" targetProject="src/main/java"/>
-        <sqlMapGenerator targetPackage="com.jarvis.mapper.xml" targetProject="src/main/resources"/>
-        <javaClientGenerator targetPackage="com.jarvis.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
-        <table schema="sys_mgmt" tableName="USERS">
+    <context id="default" targetRuntime="MyBatis3">
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/jarvis_db"
+                        driverClass="com.mysql.jdbc.Driver" password="mYsqL$%123" userId="jarvis_db">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="com.jarvis.mapper.entities"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.jarvis.mapper.entities.BasicEntity"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.jarvis.mapper.xml"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="com.jarvis.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="sys_mgmt" tableName="STATUS"/>
+        <table schema="sys_mgmt" tableName="RESPONSE_TYPE"/>
+        <table schema="sys_mgmt" tableName="TRANSACTION_TYPE"/>
+        <table schema="sys_mgmt" tableName="PRIVILEGES"/>
+        <table schema="sys_mgmt" tableName="USER_TYPES"/>
+        <table schema="sys_mgmt" tableName="USER_TYPE_PRIVILEGES"/>
+        <table schema="sys_mgmt" tableName="ROLE"/>
+        <table schema="sys_mgmt" tableName="ROLE_PRIVILEGES"/>
+        <table schema="sys_mgmt" tableName="USERS"/>
+        <table schema="sys_mgmt" tableName="USER_TRX_HIS"/>
+        <table schema="sys_mgmt" tableName="TRANSACTION_USERS"/>
+        <table schema="sys_mgmt" tableName="READER"/>
+        <table schema="sys_mgmt" tableName="BOOK">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
         </table>
+
     </context>
 </generatorConfiguration>
