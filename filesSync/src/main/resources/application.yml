@@ -16,7 +16,7 @@ spring:
         url: jdbc:mysql://localhost:3306/jarvis_db
         username: jarvis_db
         password: mYsqL$%123
-        # 使用druid数据源
+        # use druid to manage the connection pool
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
         filters: stat
