@@ -17,9 +17,11 @@
         <module>webapp-demo</module>
 
         <module>sonar_test</module>
+        <!--
         <module>spring-boot-demo</module>
         <module>OAuth-provider</module>
         <module>OAuth-client</module>
+        -->
 
         <module>profiler_test</module>
         <module>filesSync</module>
