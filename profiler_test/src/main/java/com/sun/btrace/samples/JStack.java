@@ -25,11 +25,11 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-
 import static com.sun.btrace.BTraceUtils.Sys.exit;
 import static com.sun.btrace.BTraceUtils.Threads.deadlocks;
 import static com.sun.btrace.BTraceUtils.Threads.jstackAll;
+
+import com.sun.btrace.annotations.BTrace;
 
 /*
  * A simple sample prints stack traces and exits. This

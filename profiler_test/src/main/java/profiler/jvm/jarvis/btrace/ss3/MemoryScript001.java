@@ -1,10 +1,10 @@
 package profiler.jvm.jarvis.btrace.ss3;
 
+import static com.sun.btrace.BTraceUtils.println;
+
 import com.sun.btrace.BTraceUtils;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnTimer;
-
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * Created by C5023792 on 11/29/2016.

@@ -1,12 +1,12 @@
 package jarvis.utils;
 
-import logging.util.CustomLogManager;
-
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import logging.util.CustomLogManager;
 
 /**
  * CommonUtils

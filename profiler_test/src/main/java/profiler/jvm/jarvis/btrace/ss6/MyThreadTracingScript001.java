@@ -1,10 +1,18 @@
 package profiler.jvm.jarvis.btrace.ss6;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
 
 import java.lang.management.MemoryUsage;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.BTraceUtils.D;
+import com.sun.btrace.BTraceUtils.Sys;
+import com.sun.btrace.BTraceUtils.Threads;
+import com.sun.btrace.BTraceUtils.Time;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnLowMemory;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.OnTimer;
+import com.sun.btrace.annotations.Self;
 
 /**
  * Created by Jarvis on 13/12/2016.

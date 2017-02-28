@@ -25,11 +25,13 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.D;
+import com.sun.btrace.BTraceUtils.Threads;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.DTrace;
 import com.sun.btrace.annotations.OnMethod;
-
-import static com.sun.btrace.BTraceUtils.*;
 
 /*
  * This sample demonstrates DTrace/BTrace integration.

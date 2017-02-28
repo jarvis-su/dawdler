@@ -1,9 +1,9 @@
 package jarvis.samples.hashcode;
 
+import java.io.Serializable;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import java.io.Serializable;
 
 /**
  * Created by C5023792 on 8/5/2016.

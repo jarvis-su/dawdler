@@ -1,9 +1,17 @@
 package profiler.jvm.jarvis.btrace.ss4;
 
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.jstack;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.str;
+import static com.sun.btrace.BTraceUtils.strcat;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Return;
+import com.sun.btrace.annotations.Self;
 
 /**
  * Created by Jarvis on 11/12/2016.

@@ -1,9 +1,9 @@
 package jarvis;
 
-import jarvis.utils.FilesUtils;
-
 import java.io.File;
 import java.util.List;
+
+import jarvis.utils.FilesUtils;
 
 /**
  * Hello world!
@@ -27,15 +27,22 @@ public class App {
                 fileCount++;
                 long fileSize = FilesUtils.getFileSize(f);
                 System.out.println(f.getAbsolutePath() + " size is " + fileSize);
+                String fileName = f.getName();
                 if (fileSize >= MIN_FILE_SIZE) {
-                    String fileName = f.getName();
-                    if (fileName.endsWith(".bt.xltd")) {
+                    if (fileName.endsWith("xltd")) {
                         System.out.println(fileName + " is not completed ");
                     } else {
                         System.out.println(fileName + " is  completed ");
                         FilesUtils.moveToDest(f, "J:\\778802\\files");
                     }
+                } else if(!fileName.endsWith("xltd")){
+                    System.out.println(fileName + " is  not needed, deleted it ! ");
+                    FilesUtils.removeFile(f);
                 }
+            }
+            if(FilesUtils.isEmptyFolder(f)){
+                System.out.println(f.getName() + " is empty folder, delete it ");
+                FilesUtils.removeFile(f);
             }
         }
         System.out.println("Total count " + fileCount);

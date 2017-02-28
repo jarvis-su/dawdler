@@ -1,6 +1,10 @@
 package com.jarvis.db;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  * Created by C5023792 on 11/15/2016.

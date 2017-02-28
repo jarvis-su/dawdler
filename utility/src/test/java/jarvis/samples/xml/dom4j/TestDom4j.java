@@ -1,26 +1,5 @@
 package jarvis.samples.xml.dom4j;
 
-
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import jarvis.samples.xml.Temp;
-import logging.util.CustomLogManager;
-//import org.dom4j.Attribute;
-//import org.dom4j.Document;
-//import org.dom4j.DocumentException;
-//import org.dom4j.DocumentHelper;
-//import org.dom4j.Element;
-//import org.dom4j.ProcessingInstruction;
-//import org.dom4j.VisitorSupport;
-//import org.dom4j.io.SAXReader;
-//import org.dom4j.io.XMLWriter;
-
 /**
  * Dom4j读写xml
  *

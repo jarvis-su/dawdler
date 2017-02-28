@@ -25,10 +25,15 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
-
 import static com.sun.btrace.BTraceUtils.print;
 import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.ProbeMethodName;
+import com.sun.btrace.annotations.Sampled;
+import com.sun.btrace.annotations.Self;
 
 /**
  * This script traces method entry into every method of

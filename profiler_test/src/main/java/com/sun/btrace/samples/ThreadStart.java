@@ -25,11 +25,13 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.D;
+import com.sun.btrace.BTraceUtils.Threads;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.Self;
-
-import static com.sun.btrace.BTraceUtils.*;
 
 /*
  * This BTrace script inserts a probe into

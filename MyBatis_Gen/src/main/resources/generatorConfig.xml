@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="default" targetRuntime="MyBatis3">
+        <jdbcConnection connectionURL="jdbc:mysql://localhost:3306/jarvis_db"
+                        driverClass="com.mysql.jdbc.Driver" password="mYsqL$%123" userId="jarvis_db">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+
+        <javaModelGenerator targetPackage="com.jarvis.mapper.entities"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+            <property name="rootClass" value="com.jarvis.mapper.entities.BasicEntity"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="com.jarvis.mapper.xml"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="com.jarvis.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table schema="jarvis_db" tableName="STATUS"/>
+        <table schema="jarvis_db" tableName="RESPONSE_TYPE"/>
+        <table schema="jarvis_db" tableName="TRANSACTION_TYPE"/>
+        <table schema="jarvis_db" tableName="PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="USER_TYPES"/>
+        <table schema="jarvis_db" tableName="USER_TYPE_PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="ROLE"/>
+        <table schema="jarvis_db" tableName="ROLE_PRIVILEGES"/>
+        <table schema="jarvis_db" tableName="USERS"/>
+        <table schema="jarvis_db" tableName="USER_TRX_HIS"/>
+        <table schema="jarvis_db" tableName="TRANSACTION_USERS"/>
+        <table schema="jarvis_db" tableName="READER"/>
+        <table schema="jarvis_db" tableName="BOOK">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="jarvis_db" tableName="LOC_FILES">
+            <generatedKey column="ID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+    </context>
+</generatorConfiguration>

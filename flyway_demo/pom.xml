@@ -8,6 +8,11 @@
     <name>flyway-demo Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
+    <parent>
+        <groupId>jarvis</groupId>
+        <artifactId>dawdler</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

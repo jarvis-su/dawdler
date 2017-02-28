@@ -25,9 +25,17 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.print;
+import static com.sun.btrace.BTraceUtils.println;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Duration;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.ProbeMethodName;
 
 /**
  * A simple BTrace program that prints a class name

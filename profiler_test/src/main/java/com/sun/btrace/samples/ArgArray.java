@@ -25,14 +25,14 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.printArray;
+import static com.sun.btrace.BTraceUtils.println;
+
 import com.sun.btrace.AnyType;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.ProbeClassName;
 import com.sun.btrace.annotations.ProbeMethodName;
-
-import static com.sun.btrace.BTraceUtils.printArray;
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * This sample demonstrates regular expression

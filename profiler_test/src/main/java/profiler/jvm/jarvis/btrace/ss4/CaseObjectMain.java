@@ -1,9 +1,9 @@
 package profiler.jvm.jarvis.btrace.ss4;
 
+import java.util.Random;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.util.Random;
 
 public class CaseObjectMain {
     private static Logger logger = LogManager.getLogger(CaseObjectMain.class.getName());

@@ -25,11 +25,11 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.Sys;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
-
-import static com.sun.btrace.BTraceUtils.Sys;
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * This BTrace script demonstrates that it is okay

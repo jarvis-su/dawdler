@@ -1,9 +1,9 @@
 package jarvis.utils.mail;
 
-import logging.util.CustomLogManager;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import logging.util.CustomLogManager;
 
 public class SendEmail {
     private static Logger logger = CustomLogManager.getLogger(SendEmail.class.getName());

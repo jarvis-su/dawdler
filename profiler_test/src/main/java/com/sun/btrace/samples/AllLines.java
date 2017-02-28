@@ -25,9 +25,14 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
-
 import static com.sun.btrace.BTraceUtils.print;
+
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.ProbeMethodName;
 
 /*
  * This sample prints a line every time any line

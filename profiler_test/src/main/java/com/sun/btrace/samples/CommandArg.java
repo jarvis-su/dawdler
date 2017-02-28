@@ -25,10 +25,13 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.BTraceUtils.Sys;
+import com.sun.btrace.BTraceUtils.Threads;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
-
-import static com.sun.btrace.BTraceUtils.*;
 
 /**
  * This BTrace program demonstrates command line

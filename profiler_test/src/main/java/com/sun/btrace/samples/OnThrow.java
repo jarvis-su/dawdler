@@ -25,10 +25,15 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
-
-import static com.sun.btrace.BTraceUtils.Threads;
 import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.Threads;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.TLS;
 
 /**
  * This example demonstrates printing stack trace

@@ -1,7 +1,5 @@
 package jarvis.utils;
 
-import logging.util.CustomLogManager;
-
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -10,6 +8,8 @@ import java.io.FileOutputStream;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import logging.util.CustomLogManager;
 
 /**
  * CopyThread

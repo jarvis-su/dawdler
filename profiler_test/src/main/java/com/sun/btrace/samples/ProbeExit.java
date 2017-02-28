@@ -25,12 +25,12 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.Sys;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnExit;
 import com.sun.btrace.annotations.OnTimer;
-
-import static com.sun.btrace.BTraceUtils.Sys;
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * This program demonstrates OnExit probe.

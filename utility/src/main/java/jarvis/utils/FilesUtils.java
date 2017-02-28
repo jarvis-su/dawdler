@@ -1,6 +1,11 @@
 package jarvis.utils;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +13,9 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import logging.util.CustomLogManager;
 import org.apache.commons.lang.StringUtils;
+
+import logging.util.CustomLogManager;
 
 /**
  * FilesUtils
@@ -206,5 +212,23 @@ public class FilesUtils {
         }
         return filesList;
 
+    }
+
+    public static void removeFile(File file) {
+        if (null != file) {
+            file.delete();
+        }
+    }
+
+    public static boolean isEmptyFolder(File folder) {
+        if (null != folder && folder.isDirectory()) {
+            File[] files = folder.listFiles();
+            if (files.length > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }

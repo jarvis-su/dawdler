@@ -1,12 +1,12 @@
 package sep.util.net.ipseeker;
 
 
-import org.junit.Test;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 import java.io.IOException;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
 public class IPSeekerTest {
     private final IPSeeker seeker;

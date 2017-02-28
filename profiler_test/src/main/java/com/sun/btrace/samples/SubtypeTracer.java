@@ -25,13 +25,13 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.print;
+import static com.sun.btrace.BTraceUtils.println;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.ProbeClassName;
 import com.sun.btrace.annotations.ProbeMethodName;
-
-import static com.sun.btrace.BTraceUtils.print;
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * A simple example that demonstrates subtype matching by +foo pattern
