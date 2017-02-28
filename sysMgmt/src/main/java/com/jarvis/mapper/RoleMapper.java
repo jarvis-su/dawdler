@@ -1,10 +1,11 @@
 package com.jarvis.mapper;
 
-import com.jarvis.mapper.entities.Role;
-import com.jarvis.mapper.entities.RoleExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.jarvis.mapper.entities.Role;
+import com.jarvis.mapper.entities.RoleExample;
 
 public interface RoleMapper {
     /**

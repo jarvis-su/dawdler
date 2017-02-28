@@ -1,23 +1,5 @@
 package jarvis.samples.xml.JDom;
 
-
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import jarvis.samples.xml.Temp;
-import logging.util.CustomLogManager;
-//import org.jdom.Attribute;
-//import org.jdom.Document;
-//import org.jdom.Element;
-//import org.jdom.JDOMException;
-//import org.jdom.input.SAXBuilder;
-//import org.jdom.output.XMLOutputter;
-
 /**
  * JDom读写xml
  *

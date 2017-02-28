@@ -25,14 +25,15 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import java.awt.AWTEvent;
+import java.awt.EventQueue;
+import java.awt.event.FocusEvent;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.Self;
-
-import java.awt.*;
-import java.awt.event.FocusEvent;
-
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * This simple script traces every AWT focus event in

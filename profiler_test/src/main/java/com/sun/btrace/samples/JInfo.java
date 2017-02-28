@@ -25,9 +25,13 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
+import static com.sun.btrace.BTraceUtils.exit;
+import static com.sun.btrace.BTraceUtils.printEnv;
+import static com.sun.btrace.BTraceUtils.printProperties;
+import static com.sun.btrace.BTraceUtils.printVmArguments;
+import static com.sun.btrace.BTraceUtils.println;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.annotations.BTrace;
 
 /*
  * A simple sample that prints system properties, flags and exits.

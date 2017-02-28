@@ -25,9 +25,15 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
-
 import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeMethodName;
+import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.TargetMethodOrField;
 
 /**
  * This script demonstrates the possibility to intercept

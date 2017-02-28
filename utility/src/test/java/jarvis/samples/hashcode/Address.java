@@ -1,12 +1,16 @@
 package jarvis.samples.hashcode;
 
+import java.io.Serializable;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import java.io.Serializable;
-
 public class Address implements Serializable {
-    private   Integer   id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1017443145281676499L;
+	private   Integer   id;
     private   String   address;
     private   String   telephone;
 

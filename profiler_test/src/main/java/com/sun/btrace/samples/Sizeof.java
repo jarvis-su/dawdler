@@ -25,11 +25,14 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.sizeof;
+
+import com.sun.btrace.BTraceUtils.Reflective;
+import com.sun.btrace.BTraceUtils.Strings;
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.Self;
-
-import static com.sun.btrace.BTraceUtils.*;
 
 @BTrace
 public class Sizeof {

@@ -1,10 +1,11 @@
 package com.jarvis.mapper;
 
-import com.jarvis.mapper.entities.Status;
-import com.jarvis.mapper.entities.StatusExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.jarvis.mapper.entities.Status;
+import com.jarvis.mapper.entities.StatusExample;
 
 public interface StatusMapper {
     /**

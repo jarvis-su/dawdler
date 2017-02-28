@@ -1,10 +1,10 @@
 package com.jarvis.sysmgmt.web.reading.list;
 
+import java.util.Map;
+
 import org.springframework.boot.autoconfigure.web.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestAttributes;
-
-import java.util.Map;
 
 @Component
 public class CustomErrorAttributes extends DefaultErrorAttributes {

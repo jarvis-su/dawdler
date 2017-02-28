@@ -1,11 +1,12 @@
 package com.jarvis.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.jarvis.mapper.entities.RolePrivileges;
 import com.jarvis.mapper.entities.RolePrivilegesExample;
 import com.jarvis.mapper.entities.RolePrivilegesKey;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 public interface RolePrivilegesMapper {
     /**

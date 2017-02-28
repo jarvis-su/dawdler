@@ -1,8 +1,6 @@
 package com.jarvis.db;
 
-import com.jarvis.entity.Student;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import static com.jarvis.db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -11,7 +9,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.jarvis.db.JdbcUtil.getConnection;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import com.jarvis.entity.Student;
 
 public class ListStudents {
     static List<Student> studentList = new ArrayList<>();

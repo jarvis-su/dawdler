@@ -25,16 +25,16 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import static com.sun.btrace.BTraceUtils.println;
 
 import java.lang.reflect.Field;
 import java.util.logging.LogRecord;
 import java.util.logging.Logger;
 
-import static com.sun.btrace.BTraceUtils.Reflective;
-import static com.sun.btrace.BTraceUtils.println;
+import com.sun.btrace.BTraceUtils.Reflective;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Self;
 
 /**
  * Simple log message tracer class. This class

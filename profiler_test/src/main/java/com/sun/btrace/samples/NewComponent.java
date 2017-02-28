@@ -25,14 +25,14 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
+import java.awt.Component;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.OnTimer;
 import com.sun.btrace.annotations.Self;
-
-import java.awt.*;
-
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * A BTrace program that can be run against a GUI

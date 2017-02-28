@@ -1,13 +1,14 @@
 package jarvis;
 
-import logging.util.CustomLogManager;
-import org.junit.Test;
-
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Logger;
+
+import org.junit.Test;
+
+import logging.util.CustomLogManager;
 
 /**
  * Created by jarvis on 1/22/2016.

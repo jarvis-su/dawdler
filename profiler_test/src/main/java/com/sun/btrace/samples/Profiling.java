@@ -27,7 +27,14 @@ package com.sun.btrace.samples;
 
 import com.sun.btrace.BTraceUtils;
 import com.sun.btrace.Profiler;
-import com.sun.btrace.annotations.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Duration;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.OnTimer;
+import com.sun.btrace.annotations.ProbeMethodName;
+import com.sun.btrace.annotations.Property;
 
 /**
  * This script demonstrates new capabilities built into BTrace 1.2

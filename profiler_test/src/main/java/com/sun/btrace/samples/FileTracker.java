@@ -25,13 +25,20 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.str;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.TLS;
 
 /**
  * This sample prints all files opened for read/write

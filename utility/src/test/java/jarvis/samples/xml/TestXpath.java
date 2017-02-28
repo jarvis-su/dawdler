@@ -14,10 +14,11 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import logging.util.CustomLogManager;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import logging.util.CustomLogManager;
 
 /**
  * Created by Jarvis on 4/21/16.

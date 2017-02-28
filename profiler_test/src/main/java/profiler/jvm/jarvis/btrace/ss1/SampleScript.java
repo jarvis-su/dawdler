@@ -2,7 +2,13 @@ package profiler.jvm.jarvis.btrace.ss1;
 
 import com.sun.btrace.AnyType;
 import com.sun.btrace.BTraceUtils;
-import com.sun.btrace.annotations.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.TLS;
+
 import profiler.jvm.jarvis.tmp.Foo1Command;
 
 @BTrace(unsafe = true)

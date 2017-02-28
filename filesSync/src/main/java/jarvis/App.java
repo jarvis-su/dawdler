@@ -1,9 +1,9 @@
 package jarvis;
 
-import jarvis.utils.FilesUtils;
-
 import java.io.File;
 import java.util.List;
+
+import jarvis.utils.FilesUtils;
 
 /**
  * Hello world!

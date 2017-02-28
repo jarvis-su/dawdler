@@ -25,15 +25,23 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnEvent;
-import com.sun.btrace.annotations.OnMethod;
-import com.sun.btrace.annotations.Self;
+import static com.sun.btrace.BTraceUtils.classOf;
+import static com.sun.btrace.BTraceUtils.get;
+import static com.sun.btrace.BTraceUtils.incrementAndGet;
+import static com.sun.btrace.BTraceUtils.name;
+import static com.sun.btrace.BTraceUtils.newAtomicInteger;
+import static com.sun.btrace.BTraceUtils.newHashMap;
+import static com.sun.btrace.BTraceUtils.printNumberMap;
+import static com.sun.btrace.BTraceUtils.put;
+import static com.sun.btrace.BTraceUtils.size;
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnEvent;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Self;
 
 /**
  * This sample collects histogram of javax.swing.JComponets

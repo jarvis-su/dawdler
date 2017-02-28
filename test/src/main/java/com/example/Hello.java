@@ -6,7 +6,10 @@
 
 package com.example;
 
-import javax.management.*;
+import javax.management.AttributeChangeNotification;
+import javax.management.MBeanNotificationInfo;
+import javax.management.Notification;
+import javax.management.NotificationBroadcasterSupport;
 
 public class Hello
 	extends NotificationBroadcasterSupport implements HelloMBean {

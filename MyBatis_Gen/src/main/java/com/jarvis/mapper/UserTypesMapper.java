@@ -1,9 +1,11 @@
 package com.jarvis.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.jarvis.mapper.entities.UserTypes;
 import com.jarvis.mapper.entities.UserTypesExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface UserTypesMapper {
     /**

@@ -1,10 +1,11 @@
 package com.jarvis.mapper;
 
-import com.jarvis.mapper.entities.TransactionType;
-import com.jarvis.mapper.entities.TransactionTypeExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.jarvis.mapper.entities.TransactionType;
+import com.jarvis.mapper.entities.TransactionTypeExample;
 
 public interface TransactionTypeMapper {
     /**

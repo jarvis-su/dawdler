@@ -25,7 +25,7 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
 
 import java.net.InetAddress;
 import java.net.ServerSocket;
@@ -33,8 +33,14 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.nio.channels.SocketChannel;
 
-import static com.sun.btrace.BTraceUtils.Strings;
-import static com.sun.btrace.BTraceUtils.println;
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Return;
+import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.TLS;
 
 /**
  * This example tracks all server socket creations

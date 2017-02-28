@@ -25,9 +25,13 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
-
 import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.OnTimer;
+import com.sun.btrace.annotations.Property;
+import com.sun.btrace.annotations.Self;
 
 /**
  * This sample demonstrates that you can expose a BTrace

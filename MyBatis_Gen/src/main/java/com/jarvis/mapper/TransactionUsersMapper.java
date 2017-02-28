@@ -1,10 +1,12 @@
 package com.jarvis.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.jarvis.mapper.entities.TransactionUsers;
 import com.jarvis.mapper.entities.TransactionUsersExample;
 import com.jarvis.mapper.entities.TransactionUsersKey;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface TransactionUsersMapper {
     /**

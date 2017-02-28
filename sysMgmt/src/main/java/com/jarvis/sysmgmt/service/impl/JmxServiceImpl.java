@@ -60,7 +60,7 @@ public class JmxServiceImpl implements JmxService {
         try {
             url = new JMXServiceURL(serviceURL);
             jmxc = JMXConnectorFactory.connect(url, null);
-            ClientListener listener = new ClientListener();
+//            ClientListener listener = new ClientListener();
             logger.info("\nGet an MBeanServerConnection");
             MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
             logger.info("\nDomains:");

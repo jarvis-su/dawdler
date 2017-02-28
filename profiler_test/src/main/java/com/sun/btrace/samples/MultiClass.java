@@ -25,11 +25,11 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.println;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.ProbeClassName;
-
-import static com.sun.btrace.BTraceUtils.println;
 
 /**
  * This BTrace class demonstrates that we can

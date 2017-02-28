@@ -25,9 +25,15 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.BTraceUtils.Reflective;
+import com.sun.btrace.BTraceUtils.Threads;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.DTraceRef;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
 
 /*
  * This sample demonstrates associating a D-script

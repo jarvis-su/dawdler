@@ -1,7 +1,8 @@
 package com.jarvis.sysmgmt.web.reading.list;
 
 
-import com.jarvis.sysmgmt.entity.Reader;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.http.HttpStatus;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.List;
+import com.jarvis.sysmgmt.entity.Reader;
 
 @Controller
 @RequestMapping("/")

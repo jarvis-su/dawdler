@@ -1,12 +1,13 @@
 package profiler.jvm.jarvis.btrace.ss6;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import profiler.jvm.jarvis.btrace.ss5.TestItem;
 
-import java.util.ArrayList;
-import java.util.List;
+import profiler.jvm.jarvis.btrace.ss5.TestItem;
 
 /**
  * Created by Jarvis on 12/12/2016.

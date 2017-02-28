@@ -25,10 +25,10 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-
-import static com.sun.btrace.BTraceUtils.Sys;
 import static com.sun.btrace.BTraceUtils.println;
+
+import com.sun.btrace.BTraceUtils.Sys;
+import com.sun.btrace.annotations.BTrace;
 
 /*
  * A simple sample that dumps heap of the target at start and exits.

@@ -25,12 +25,19 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
 
 import java.net.Proxy;
 import java.net.URL;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.BTraceUtils.D;
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.DTraceRef;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.TLS;
 
 /*
  * This sample prints every Java URL openURL and

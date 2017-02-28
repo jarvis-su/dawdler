@@ -25,10 +25,10 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.Threads.deadlocks;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnTimer;
-
-import static com.sun.btrace.BTraceUtils.Threads.deadlocks;
 
 /**
  * This BTrace program demonstrates deadlocks

@@ -25,12 +25,12 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.annotations.BTrace;
-import com.sun.btrace.annotations.OnLowMemory;
+import static com.sun.btrace.BTraceUtils.println;
 
 import java.lang.management.MemoryUsage;
 
-import static com.sun.btrace.BTraceUtils.println;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.OnLowMemory;
 
 /**
  * This sample traces memory threshold exceeds.

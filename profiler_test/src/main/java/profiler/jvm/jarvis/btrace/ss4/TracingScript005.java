@@ -1,13 +1,24 @@
 package profiler.jvm.jarvis.btrace.ss4;
 
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.classOf;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.str;
+import static com.sun.btrace.BTraceUtils.strcat;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnEvent;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.ProbeClassName;
+import com.sun.btrace.annotations.ProbeMethodName;
+import com.sun.btrace.annotations.TargetInstance;
+import com.sun.btrace.annotations.TargetMethodOrField;
 
 @BTrace(unsafe=true)
 public class TracingScript005 {

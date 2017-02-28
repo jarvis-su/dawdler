@@ -1,10 +1,11 @@
 package jarvis.file.sync.mapper;
 
-import jarvis.file.sync.mapper.entities.LocFiles;
-import jarvis.file.sync.mapper.entities.LocFilesExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import jarvis.file.sync.mapper.entities.LocFiles;
+import jarvis.file.sync.mapper.entities.LocFilesExample;
 
 public interface LocFilesMapper {
     /**

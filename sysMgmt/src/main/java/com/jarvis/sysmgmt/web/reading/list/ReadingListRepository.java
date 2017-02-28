@@ -1,9 +1,10 @@
 package com.jarvis.sysmgmt.web.reading.list;
 
-import com.jarvis.sysmgmt.entity.Reader;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import com.jarvis.sysmgmt.entity.Reader;
 
 public interface ReadingListRepository extends JpaRepository<Book, Long> {
 

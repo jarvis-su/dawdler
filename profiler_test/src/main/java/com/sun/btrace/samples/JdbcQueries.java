@@ -25,16 +25,30 @@
 
 package com.sun.btrace.samples;
 
-import com.sun.btrace.AnyType;
-import com.sun.btrace.aggregation.Aggregation;
-import com.sun.btrace.aggregation.AggregationFunction;
-import com.sun.btrace.aggregation.AggregationKey;
-import com.sun.btrace.annotations.*;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.str;
 
 import java.sql.Statement;
 import java.util.Map;
 
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.AnyType;
+import com.sun.btrace.BTraceUtils.Aggregations;
+import com.sun.btrace.BTraceUtils.Collections;
+import com.sun.btrace.BTraceUtils.Strings;
+import com.sun.btrace.BTraceUtils.Sys;
+import com.sun.btrace.BTraceUtils.Threads;
+import com.sun.btrace.aggregation.Aggregation;
+import com.sun.btrace.aggregation.AggregationFunction;
+import com.sun.btrace.aggregation.AggregationKey;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Duration;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnEvent;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Return;
+import com.sun.btrace.annotations.Self;
+import com.sun.btrace.annotations.TLS;
 
 /**
  * BTrace script to print timings for all executed JDBC statements on an event. Demonstrates

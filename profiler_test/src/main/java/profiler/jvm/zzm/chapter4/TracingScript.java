@@ -1,10 +1,17 @@
 package profiler.jvm.zzm.chapter4;
 
+import static com.sun.btrace.BTraceUtils.jstack;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.str;
+import static com.sun.btrace.BTraceUtils.strcat;
+
 /* BTrace Script Template */
-
-import com.sun.btrace.annotations.*;
-
-import static com.sun.btrace.BTraceUtils.*;
+import com.sun.btrace.annotations.BTrace;
+import com.sun.btrace.annotations.Kind;
+import com.sun.btrace.annotations.Location;
+import com.sun.btrace.annotations.OnMethod;
+import com.sun.btrace.annotations.Return;
+import com.sun.btrace.annotations.Self;
 
 @BTrace(unsafe = true)
 public class TracingScript {

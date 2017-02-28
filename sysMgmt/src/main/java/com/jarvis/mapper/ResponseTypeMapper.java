@@ -1,10 +1,11 @@
 package com.jarvis.mapper;
 
-import com.jarvis.mapper.entities.ResponseType;
-import com.jarvis.mapper.entities.ResponseTypeExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.jarvis.mapper.entities.ResponseType;
+import com.jarvis.mapper.entities.ResponseTypeExample;
 
 public interface ResponseTypeMapper {
     /**

@@ -25,14 +25,22 @@
 
 package com.sun.btrace.samples;
 
+import static com.sun.btrace.BTraceUtils.concat;
+import static com.sun.btrace.BTraceUtils.currentThread;
+import static com.sun.btrace.BTraceUtils.field;
+import static com.sun.btrace.BTraceUtils.get;
+import static com.sun.btrace.BTraceUtils.jstack;
+import static com.sun.btrace.BTraceUtils.printFields;
+import static com.sun.btrace.BTraceUtils.println;
+import static com.sun.btrace.BTraceUtils.runFinalization;
+import static com.sun.btrace.BTraceUtils.str;
+
+import java.lang.reflect.Field;
+
 import com.sun.btrace.annotations.BTrace;
 import com.sun.btrace.annotations.OnMethod;
 import com.sun.btrace.annotations.OnTimer;
 import com.sun.btrace.annotations.Self;
-
-import java.lang.reflect.Field;
-
-import static com.sun.btrace.BTraceUtils.*;
 
 @BTrace
 public class FinalizeTracker {

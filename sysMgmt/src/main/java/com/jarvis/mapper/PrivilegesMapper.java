@@ -1,10 +1,11 @@
 package com.jarvis.mapper;
 
-import com.jarvis.mapper.entities.Privileges;
-import com.jarvis.mapper.entities.PrivilegesExample;
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
-import java.util.List;
+import com.jarvis.mapper.entities.Privileges;
+import com.jarvis.mapper.entities.PrivilegesExample;
 
 public interface PrivilegesMapper {
     /**

@@ -1,11 +1,12 @@
 package com.jarvis.mapper;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.jarvis.mapper.entities.UserTrxHis;
 import com.jarvis.mapper.entities.UserTrxHisExample;
 import com.jarvis.mapper.entities.UserTrxHisKey;
-import org.apache.ibatis.annotations.Param;
-
-import java.util.List;
 
 public interface UserTrxHisMapper {
     /**
