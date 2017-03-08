@@ -1,4 +1,4 @@
-package java.sonar;
+package sonar.issues;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

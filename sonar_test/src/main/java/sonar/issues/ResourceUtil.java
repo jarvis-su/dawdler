@@ -1,4 +1,4 @@
-package sonar;
+package sonar.issues;
 
 /**
  * Created by C5023792 on 7/28/2016.
