@@ -1,6 +1,7 @@
 .idea
 .sonar
 
+target
 /*/target/
 
 *.iml
