@@ -27,6 +27,7 @@
 		<module>filesSync</module>
 		<module>MyBatis_Gen</module>
 		<module>sysMgmt</module>
+		<module>grab-data</module>
 	</modules>
 
 	<properties>
