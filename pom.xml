@@ -16,6 +16,7 @@
 		<module>flyway_demo</module>
 		<module>quickstart-demo</module>
 		<module>webapp-demo</module>
+        <module>webapp-test</module>
 
 		<module>sonar_test</module>
 		<!-- <module>spring-boot-demo</module> -->
