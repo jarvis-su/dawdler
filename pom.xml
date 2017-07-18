@@ -29,6 +29,8 @@
 		<module>MyBatis_Gen</module>
 		<module>sysMgmt</module>
 		<module>grab-data</module>
+		<module>hadoop-demo</module>
+        <module>HBase-demo</module>
 	</modules>
 
 	<properties>
