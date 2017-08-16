@@ -13,8 +13,7 @@ target
 *.project
 
 *.log
+*.log.*
 /test/*log.log*
 /utility/*log.log*
 /log
-
-
