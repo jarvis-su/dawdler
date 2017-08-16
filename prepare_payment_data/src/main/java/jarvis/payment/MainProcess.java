@@ -1,40 +1,21 @@
 package jarvis.payment;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.List;
 
-import jarvis.util.CommonUtils;
-import jarvis.util.DBUtil;
-import jarvis.util.ExcelUtil;
+import jarvis.payment.data.AddToDatabase;
+import jarvis.util.TxtUtil;
 
 public class MainProcess {
 
 	public static void main(String[] args) {
 
-		testOracle();
-		
-		ExcelUtil.readXlsx("F:\\Document\\2017R1\\Data\\payment_data.xlsx");
+		List<String> transactions = TxtUtil.getData("F:\\Document\\2017R1\\Data\\payment_data_att.csv");
+		List<String> adjustments = TxtUtil.getData("F:\\Document\\2017R1\\Data\\payment_data_adj.csv");
+		List<String> holidaysAndClosureDay = TxtUtil.getData("F:\\Document\\2017R1\\Data\\payment_data_hc.csv");
 
-	}
-
-	public static void testOracle() {
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			con = DBUtil.getDefaltConn();
-			String sql = "select * from dual";
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			while (rs.next())
-				System.out.println(rs.getString(1));
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			CommonUtils.closeResources(rs, ps, con);
-		}
+		AddToDatabase.addTrx(transactions);
+		AddToDatabase.addAdj(adjustments);
+		AddToDatabase.addHolidayAndClosure(holidaysAndClosureDay);
 	}
 
 }

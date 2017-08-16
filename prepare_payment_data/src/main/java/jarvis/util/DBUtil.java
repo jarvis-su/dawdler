@@ -2,6 +2,8 @@ package jarvis.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBUtil {
@@ -27,6 +29,22 @@ public class DBUtil {
 		return con;
 	}
 
-
+	public static void testOracle() {
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			con = DBUtil.getDefaltConn();
+			String sql = "select * from dual";
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while (rs.next())
+				System.out.println(rs.getString(1));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			CommonUtils.closeResources(rs, ps, con);
+		}
+	}
 
 }

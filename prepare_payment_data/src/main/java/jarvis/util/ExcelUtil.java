@@ -3,7 +3,9 @@ package jarvis.util;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -11,17 +13,22 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtil {
 
-	public static void readXlsx(String fileName) {
+	public static List<String> readXlsx(String fileName, int sheetNum) {
+		List<String> data = new ArrayList<>();
+
 		boolean isE2007 = false;
-		if (fileName.endsWith("xlsx"))
+		if (fileName.endsWith("xlsx")) {
 			isE2007 = true;
+		}
 		Workbook wb = null;
+		InputStream input = null;
 		try {
-			InputStream input = new FileInputStream(fileName);
+			input = new FileInputStream(fileName);
 			if (isE2007)
 				wb = new XSSFWorkbook(input);
 			else
@@ -32,28 +39,33 @@ public class ExcelUtil {
 				Row row = rows.next();
 				int rowNum = row.getRowNum();
 				if (rowNum > 0) {
-//					System.out.println("Row #" + row.getRowNum());
+					StringBuffer line = new StringBuffer();
 					Iterator<Cell> cells = row.cellIterator();
 					while (cells.hasNext()) {
-						Cell cell = cells.next();
+						HSSFCell cell = (HSSFCell) cells.next();
 						System.out.println("Cell #" + cell.getColumnIndex());
 						
-						switch (cell.getCellType()) {   //根据cell中的类型来输出数据  
-	                    case HSSFCell.CELL_TYPE_NUMERIC:  
-	                        System.out.println(cell.getNumericCellValue());  
-	                        break;  
-	                    case HSSFCell.CELL_TYPE_STRING:  
-	                        System.out.println(cell.getStringCellValue());  
-	                        break;  
-	                    case HSSFCell.CELL_TYPE_BOOLEAN:  
-	                        System.out.println(cell.getBooleanCellValue());  
-	                        break;  
-	                    case HSSFCell.CELL_TYPE_FORMULA:  
-	                        System.out.println(cell.getCellFormula());  
-	                        break;  
-	                    default:  
-	                        System.out.println("unsuported sell type");  
-	                        break;
+						cell.getCellType();
+						
+						int it = XSSFCell.CELL_TYPE_STRING;
+						
+
+						switch (cell.getCellType()) { // 根据cell中的类型来输出数据
+						case HSSFCell.CELL_TYPE_NUMERIC:
+							System.out.println(cell.getNumericCellValue());
+							break;
+						case HSSFCell.CELL_TYPE_STRING:
+							System.out.println(cell.getStringCellValue());
+							break;
+						case HSSFCell.CELL_TYPE_BOOLEAN:
+							System.out.println(cell.getBooleanCellValue());
+							break;
+						case HSSFCell.CELL_TYPE_FORMULA:
+							System.out.println(cell.getCellFormula());
+							break;
+						default:
+							System.out.println("unsuported sell type");
+							break;
 						}
 					}
 				}
@@ -61,7 +73,8 @@ public class ExcelUtil {
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
-			CommonUtils.closeResources(wb);
+			CommonUtils.closeResources(wb, input);
 		}
+		return data;
 	}
 }
