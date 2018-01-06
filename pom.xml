@@ -11,23 +11,20 @@
     <modules>
         <module>utility</module>
         <module>test</module>
-
         <module>flyway_demo</module>
         <module>quickstart-demo</module>
         <module>webapp-demo</module>
-
         <module>sonar_test</module>
-        <!--
         <module>spring-boot-demo</module>
-        -->
         <module>OAuth-provider</module>
         <module>OAuth-client</module>
-
-
-        <module>profiler_test</module>
         <module>filesSync</module>
-        <module>MyBatis_Gen</module>
-        <module>sysMgmt</module>
+        <!--
+               <module>profiler_test</module>
+
+               <module>MyBatis_Gen</module>
+               <module>sysMgmt</module>
+               -->
     </modules>
 
     <profiles>
@@ -40,6 +37,7 @@
                 </property>
             </activation>
             <dependencies>
+                <!--
                 <dependency>
                     <groupId>com.sun</groupId>
                     <artifactId>tools</artifactId>
@@ -47,6 +45,7 @@
                     <scope>system</scope>
                     <systemPath>${java.home}/../lib/tools.jar</systemPath>
                 </dependency>
+                -->
             </dependencies>
         </profile>
     </profiles>

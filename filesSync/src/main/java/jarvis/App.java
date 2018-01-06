@@ -18,7 +18,7 @@ public class App {
         files = FilesUtils.getAllFiles("F:\\X-Man");
         files = FilesUtils.getAllFiles("G:\\Sunny");
         files = FilesUtils.getAllFiles("J:\\778802\\tmp");
-        files = FilesUtils.getAllFiles("G:\\迅雷下载");
+        files = FilesUtils.getAllFiles("G:\\TDownload");
 
 
         long fileCount = 0;
@@ -33,7 +33,7 @@ public class App {
                         System.out.println(fileName + " is not completed ");
                     } else {
                         System.out.println(fileName + " is  completed ");
-                        FilesUtils.moveToDest(f, "J:\\778802\\files");
+                        FilesUtils.moveToDest(f, "E:\\tmp");
                     }
                 } else if(!fileName.endsWith("xltd")){
                     System.out.println(fileName + " is  not needed, deleted it ! ");
