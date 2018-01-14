@@ -18,8 +18,7 @@ public class App {
         files = FilesUtils.getAllFiles("F:\\X-Man");
         files = FilesUtils.getAllFiles("G:\\Sunny");
         files = FilesUtils.getAllFiles("J:\\778802\\tmp");
-        files = FilesUtils.getAllFiles("G:\\TDownload");
-
+        files = FilesUtils.getAllFiles("D:\\TDownload");
 
         long fileCount = 0;
         for (File f : files) {
@@ -31,9 +30,11 @@ public class App {
                 if (fileSize >= MIN_FILE_SIZE) {
                     if (fileName.endsWith("xltd")) {
                         System.out.println(fileName + " is not completed ");
-                    } else {
+                    }else if (fileName.endsWith(".exe")){
+                        System.out.println(fileName + " is not a movie !  ");
+                    }else {
                         System.out.println(fileName + " is  completed ");
-                        FilesUtils.moveToDest(f, "E:\\tmp");
+                        FilesUtils.moveToDest(f, "F:\\tmp");
                     }
                 } else if(!fileName.endsWith("xltd")){
                     System.out.println(fileName + " is  not needed, deleted it ! ");
