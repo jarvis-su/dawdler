@@ -9,7 +9,7 @@ import jarvis.utils.FilesUtils;
  * Hello world!
  */
 public class App {
-    static long MIN_FILE_SIZE = 10 * 1024 * 1024;
+    static long MIN_FILE_SIZE = 30 * 1024 * 1024;
 
     public static void main(String[] args) {
         System.out.println("Hello World!");
@@ -30,7 +30,7 @@ public class App {
                 if (fileSize >= MIN_FILE_SIZE) {
                     if (fileName.endsWith("xltd")) {
                         System.out.println(fileName + " is not completed ");
-                    }else if (fileName.endsWith(".exe")){
+                    }else if (fileName.endsWith(".exe")||fileName.endsWith(".iso")){
                         System.out.println(fileName + " is not a movie !  ");
                     }else {
                         System.out.println(fileName + " is  completed ");
