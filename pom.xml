@@ -11,17 +11,18 @@
     <modules>
         <module>utility</module>
         <module>test</module>
+        <!--
         <module>flyway_demo</module>
         <module>quickstart-demo</module>
         <module>webapp-demo</module>
         <module>sonar_test</module>
-        <!--
+
         <module>spring-boot-demo</module>
-        -->
+
         <module>OAuth-provider</module>
         <module>OAuth-client</module>
         <module>filesSync</module>
-        <!--
+
         <module>profiler_test</module>
         <module>MyBatis_Gen</module>
         <module>sysMgmt</module>
