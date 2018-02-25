@@ -2,7 +2,7 @@ package jarvis.samples.hashcode;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HashcodeTest {
+public class HashcodeRun {
     public static void main(String[] args) {
         Student studentOne = new Student();
         studentOne.setName("aaa");

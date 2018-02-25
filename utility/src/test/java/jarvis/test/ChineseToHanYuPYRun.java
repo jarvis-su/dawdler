@@ -19,7 +19,7 @@ import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombi
  * Created by C5023792 on 11/25/2016.
  */
 //FIXME 来自 https://my.oschina.net/u/1054538/blog/793596 未经测试.
-public class ChineseToHanYuPYTest {
+public class ChineseToHanYuPYRun {
     private static Map<String, List<String>> pinyinMap = new HashMap<String, List<String>>();
 
     private static long count = 0;

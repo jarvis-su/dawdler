@@ -5,7 +5,7 @@ import jarvis.utils.PinyinTool;
 /**
  * Created by C5023792 on 11/25/2016.
  */
-public class PinyinToolTest {
+public class PinyinToolRun {
     public static void main(String[] args) {
         PinyinTool tool = new PinyinTool();
         String hanZi = "虤,掱-不对,嬲,姧";
